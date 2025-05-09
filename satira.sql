@@ -77,16 +77,17 @@ CREATE TABLE `post` (
   `titolo` varchar(100) NOT NULL,
   `contenuto` text,
   `data_pubblicazione` datetime NOT NULL,
-  `fk_id_admin` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `fk_id_admin` int(11) NOT NULL,
+  `visible` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `post`
 --
 
-INSERT INTO `post` (`id`, `immagine_post`, `titolo`, `contenuto`, `data_pubblicazione`, `fk_id_admin`) VALUES
-(1, 'https://esempio.com/images/post_satirico1.jpg', 'La satira che non ti aspetti', 'Un\'analisi ironica e dissacrante dei luoghi comuni che tutti amiamo odiare. Il nostro personaggio questa volta ha davvero esagerato!', '2024-06-10 09:30:00', 1),
-(2, 'https://esempio.com/images/meme_satirico.png', 'Ridere per non piangere: guida alla sopravvivenza', 'Una raccolta delle situazioni più assurde che il nostro protagonista ha affrontato negli ultimi mesi. Con commenti esilaranti e riflessioni pungenti.', '2024-06-10 15:45:00', 2);
+INSERT INTO `post` (`id`, `immagine_post`, `titolo`, `contenuto`, `data_pubblicazione`, `fk_id_admin`, `visible`) VALUES
+(1, 'https://esempio.com/images/post_satirico1.jpg', 'La satira che non ti aspetti', 'Un\'analisi ironica e dissacrante dei luoghi comuni che tutti amiamo odiare. Il nostro personaggio questa volta ha davvero esagerato!', '2024-06-10 09:30:00', 1, 0),
+(2, 'https://esempio.com/images/meme_satirico.png', 'Ridere per non piangere: guida alla sopravvivenza', 'Una raccolta delle situazioni più assurde che il nostro protagonista ha affrontato negli ultimi mesi. Con commenti esilaranti e riflessioni pungenti.', '2024-06-10 15:45:00', 2, 0);
 
 --
 -- Indici per le tabelle scaricate

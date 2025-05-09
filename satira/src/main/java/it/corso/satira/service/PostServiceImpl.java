@@ -10,23 +10,29 @@ import it.corso.satira.model.Post;
 import it.corso.satira.repository.PostRepository;
 
 @Service
-public class PostServiceImpl implements PostService{
+public class PostServiceImpl implements PostService {
 
-    @Autowired
-    private PostRepository postRepository;
+  @Autowired
+  private PostRepository postRepository;
 
-    @Override
-    public List<Post> elencoPosts() {
-       return (List<Post>) postRepository.findAll();
+  @Override
+  public List<Post> elencoPosts() {
+    return (List<Post>) postRepository.findAll();
+  }
+
+  @Override
+  public Post datiPost(Integer id) {
+    Optional<Post> postOptional = postRepository.findById(id);
+    if (postOptional.isPresent()) {
+      return postOptional.get();
     }
+    return null;
+  }
 
-    @Override
-    public Post datiPost(Integer id) {
-      Optional<Post> postOptional = postRepository.findById(id);
-      if(postOptional.isPresent()){
-        return postOptional.get();
-      }
-      return null;
-    }
+  @Override
+  public String eliminazionePost(Integer id) {
+    postRepository.deleteById(id);
+    return null;
+  }
 
 }

@@ -8,4 +8,5 @@ public interface CommentiService {
     List<Commento> elencoCommenti();
 
     Commento datiCommento(Integer id);
+    String eliminazioneCommento(Integer id);
 }

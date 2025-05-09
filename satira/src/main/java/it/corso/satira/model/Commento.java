@@ -2,11 +2,16 @@ package it.corso.satira.model;
 
 import java.time.LocalDateTime;
 
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,7 +21,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name="commenti")
-public class Commenti {
+public class Commento {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,4 +34,10 @@ public class Commenti {
 
   @Column(name = "data_commento")
   private LocalDateTime dataCommento;
+
+  @ManyToOne (cascade = CascadeType.REFRESH)
+  @JoinColumn (name="fk_id_post", referencedColumnName = "id")
+  private Post post;
+
 }
+

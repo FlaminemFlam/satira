@@ -1,6 +1,8 @@
 package it.corso.satira.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -46,7 +48,6 @@ public class Post {
         fetch = FetchType.EAGER,
         orphanRemoval = true
     )
-    @JoinColumn(name="fk_id_commenti", referencedColumnName = "id")
-    private Commenti commenti;
+    private List <Commento> commento = new ArrayList<>();
 
 }

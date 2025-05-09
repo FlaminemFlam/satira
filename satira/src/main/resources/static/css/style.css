@@ -16,3 +16,11 @@
 .fc-s{
     color: var(--second-color);
 }
+
+.fc-t {
+    color: var(--third-color);
+}
+
+.fc-f {
+    color: var(--four-color);
+}

@@ -1,6 +1,8 @@
 package it.corso.satira.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -39,14 +41,7 @@ public class Post {
     @JoinColumn(name ="fk_id_admin", referencedColumnName = "id")
     private Admin admin;
 
-    @OneToMany //ad un post corrispondono molti commenti
-    (
-        mappedBy = "post",
-        cascade = CascadeType.ALL,
-        fetch = FetchType.EAGER,
-        orphanRemoval = true
-    )
-    @JoinColumn(name="fk_id_commenti", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.REFRESH) //refresh: quando registro un post NON registro commento
+    @JoinColumn(name ="fk_id_commenti", referencedColumnName = "id")
     private Commenti commenti;
-
 }

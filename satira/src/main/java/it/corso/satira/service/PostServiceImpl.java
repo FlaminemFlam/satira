@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import it.corso.satira.model.Commento;
 import it.corso.satira.model.Post;
 import it.corso.satira.repository.PostRepository;
 
@@ -25,7 +26,7 @@ public class PostServiceImpl implements PostService {
   private AdminService adminService;
 
   @Override
-  public List<Post> elencoPosts() {
+  public List<Post> elencoPost() {
     return (List<Post>) postRepository.findAll();
   }
 
@@ -44,13 +45,15 @@ public class PostServiceImpl implements PostService {
     return null;
   }
 
+  @SuppressWarnings("unchecked")
   @Override
-  public void registrazionePost(Post post, MultipartFile immaginePost, String titolo, String contenuto,
+  public void creazionePost(Post post, MultipartFile immaginePost, String titolo, String contenuto,
       LocalDateTime dataPubblicazione, Integer idCommento, Integer idAdmin) {
+
     post.setTitolo(titolo);
     post.setContenuto(contenuto);
     post.setDataPubblicazione(dataPubblicazione);
-    post.setCommento(commentiService.datiCommento(idCommento));
+    post.setCommento((List<Commento>) commentiService.datiCommento(idCommento));
     post.setAdmin(adminService.datiAdmin(idAdmin));
 
     if (immaginePost != null && !immaginePost.isEmpty()) {

@@ -30,8 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `nikname` varchar(50) NOT NULL,
-  `pass` varchar(50) NOT NULL,
+  `nickname` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `img` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -74,7 +74,7 @@ CREATE TABLE `post` (
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
-  ADD UNIQUE KEY `nikname` (`nikname`);
+  ADD UNIQUE KEY `nickname` (`nickname`);
 
 --
 -- Indici per le tabelle `commenti`

@@ -22,8 +22,6 @@ public class PostServiceImpl implements PostService {
   @Autowired
   private CommentiService commentiService;
 
-  @Autowired
-  private AdminService adminService;
 
   @Override
   public List<Post> elencoPost() {
@@ -54,7 +52,7 @@ public class PostServiceImpl implements PostService {
     post.setContenuto(contenuto);
     post.setDataPubblicazione(dataPubblicazione);
     post.setCommento((List<Commento>) commentiService.datiCommento(idCommento));
-    post.setAdmin(adminService.datiAdmin(idAdmin));
+    
 
     if (immaginePost != null && !immaginePost.isEmpty()) {
       try {

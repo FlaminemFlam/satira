@@ -23,7 +23,7 @@ public class AdminServiceImpl implements AdminService{
     
     @Override
     public String controlloLogin(String username, String password, HttpSession session) {
-        Admin admin = adminRepository.findByProfiloUsername(username);
+        Admin admin = adminRepository.findByUsername(username);
         if(admin == null || !admin.getPassword().equals(password)){
             return "Credenziali Errate";
         }
@@ -43,9 +43,6 @@ public String aggiuntaPost(Integer idPost, HttpSession session) {
 
     // Recupera l'admin dalla sessione
     Admin adminSessione = (Admin) session.getAttribute("admin");
-    if (adminSessione == null) {
-        return "Sessione non valida: admin non trovato.";
-    }
     
     // Recupero l'oggetto completo Admin dal repository, in modo da avere tutte le relazioni correttamente caricate
     Optional<Admin> adminOpt = adminRepository.findById(adminSessione.getId());
@@ -97,7 +94,7 @@ public String aggiuntaPost(Integer idPost, HttpSession session) {
     
     @Override
     public String controlloUsername(String username) {
-        if(adminRepository.findByProfiloUsername(username) != null){
+        if(adminRepository.findByUsername(username) != null){
             return "Username Non Disponibile";
         }
         return null;

@@ -1,5 +1,10 @@
 package it.corso.satira.service;
 
-public interface PostService {
+import java.util.List;
 
+import it.corso.satira.model.Post;
+
+public interface PostService {
+    List<Post> elencoPosts();
+    Post datiPost(Integer id);
 }

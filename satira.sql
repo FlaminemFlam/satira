@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Creato il: Mag 09, 2025 alle 11:22
--- Versione del server: 10.4.28-MariaDB
--- Versione PHP: 8.2.4
+-- Host: 127.0.0.1
+-- Creato il: Mag 09, 2025 alle 14:34
+-- Versione del server: 10.4.32-MariaDB
+-- Versione PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -45,7 +45,8 @@ CREATE TABLE `commenti` (
   `id` int(11) NOT NULL,
   `testo` varchar(255) DEFAULT NULL,
   `immagine_commento` longtext DEFAULT NULL,
-  `data_commento` datetime NOT NULL
+  `data_commento` datetime NOT NULL,
+  `fk_id_post` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -74,13 +75,14 @@ CREATE TABLE `post` (
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
-  ADD UNIQUE KEY `nickname` (`nickname`);
+  ADD UNIQUE KEY `nikname` (`nickname`);
 
 --
 -- Indici per le tabelle `commenti`
 --
 ALTER TABLE `commenti`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_id_post` (`fk_id_post`);
 
 --
 -- Indici per le tabelle `post`
@@ -115,6 +117,12 @@ ALTER TABLE `post`
 --
 -- Limiti per le tabelle scaricate
 --
+
+--
+-- Limiti per la tabella `commenti`
+--
+ALTER TABLE `commenti`
+  ADD CONSTRAINT `commenti_ibfk_1` FOREIGN KEY (`fk_id_post`) REFERENCES `post` (`id`);
 
 --
 -- Limiti per la tabella `post`

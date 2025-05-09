@@ -9,6 +9,10 @@
     color: var(--main-color);
 }
 
+.fc-pb {
+    background-color: var(--main-color);
+}
+
 .fc-s{
     color: var(--second-color);
 }

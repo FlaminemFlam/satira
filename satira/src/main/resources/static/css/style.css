@@ -42,3 +42,7 @@
     height: 200px;
     width: auto;
 }
+
+a:hover {
+    color:var(--second-color)  !important;
+}

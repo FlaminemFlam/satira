@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import it.corso.satira.model.Admin;
 import it.corso.satira.repository.AdminRepository;
+import it.corso.satira.service.AdminService;
+import jakarta.servlet.http.HttpSession;
 
 //localhost:8080/admidash
 @Controller
@@ -20,11 +22,20 @@ public class AdmindashController {
     
     @Autowired
     private AdminRepository adminRepository;
+
+    @Autowired
+    private AdminService adminService;
     
     
     @GetMapping
-    public String renderPage(Model model){
-        model.addAttribute("admin", new Admin());
+    public String renderPage(HttpSession session, Model model, @RequestParam(required = false) String esito){
+        if(session.getAttribute("admin") == null){
+            return "redirect:/loginAdmin";
+        }
+        Admin adminSessione = (Admin) session.getAttribute("admin");
+        Admin admin = adminService.datiAdmin(adminSessione.getId());
+        model.addAttribute("admin", admin);
+        model.addAttribute("esito", esito);
         return "admindash";
     }
 

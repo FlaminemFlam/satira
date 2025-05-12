@@ -41,7 +41,7 @@ public class FormAdminController {
         String emailBody = "Salve mi chiamo " + form.getUsername() + ",\n\n" +
         "Richiedo di avere accesso come admin, clicca sul seguente link:\n" +
         confirmationLink + "\n\n" +
-        "Cordiali Saluti,\nIl Team";
+        "Cordiali Saluti, " + form.getUsername() + "\n" ;
         emailService.sendMail("gia.minisi@gmail.com", "Conferma Admin", emailBody);
         
         return "redirect:/adminForm?success";

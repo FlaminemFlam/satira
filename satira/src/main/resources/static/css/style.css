@@ -1,11 +1,12 @@
-:root{
+:root {
     --main-color: #FFE6E6;
     --second-color: #FF2626;
     --third-color: #BD1616;
     --four-color: #0c0c0c;
 }
 
-.fc-p{
+
+.fc-p {
     color: var(--main-color);
 }
 
@@ -13,8 +14,12 @@
     background-color: var(--main-color);
 }
 
-.fc-s{
+.fc-s {
     color: var(--second-color);
+}
+
+.fc-sb {
+    background-color: var(--second-color);
 }
 
 .fc-t {
@@ -25,7 +30,7 @@
     color: var(--four-color);
 }
 
-.pap1{
+.pap1 {
     height: 200px;
     width: auto;
 }

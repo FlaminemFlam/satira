@@ -41,11 +41,14 @@
 
         <div class="row justify-content-center">
             <div class="col-8 m-3 ">
+                <div class="riquadroTest" th:style="'background-image: url(' + @{/immagini/papa1.png} + ');'">
 
-                <h3>
+                </div>
+                <!-- <img th:src="@{immagini/papa1.png}" class="d-block" alt="..."> -->
+                <h3 th:text="${posts[0].titolo}">
                     Papa lancia linea di profumi: 'Eau de Sacrestia', con note d’incenso e burocrazia'
                 </h3>
-                <p>
+                <p th:text="${posts[0].contenuto}">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur obcaecati ad cum cupiditate
                     asperiores porro fuga quaerat optio ipsam culpa eligendi quam quis vel sit mollitia voluptate
                     facilis, totam eius dignissimos ea repellendus. Animi distinctio sunt culpa numquam unde recusandae
@@ -73,22 +76,25 @@
             </div>
 
         </div>
-        <div th:each="post : ${posts}" class="col-lg-3 text-center p-2">
-            <!-- Titolo del post -->
-            <h4 class="text-primary mt-2">
-                <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}"
-                    class="text-decoration-none fc-t">Titolo
-                    libro</a>
-            </h4>
+        <div class="d-flex">
+            <div th:each="post : ${posts}" class="col-lg-3 text-center p-2">
+                <!-- Titolo del post -->
+                <h4 class="text-primary mt-2">
+                    <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}"
+                        class="text-decoration-none fc-t">Titolo
+                        libro</a>
+                </h4>
 
-            <!-- Admin che ha creato il post -->
-            <span class="text-muted" th:text="|Creato da: ${post.admin.username}|"></span>
+                <!-- Admin che ha creato il post -->
+                <span class="text-muted" th:text="|Creato da: ${post.admin.username}|"></span>
 
-            <!-- Commenti relativi al post -->
-            <div th:each="commento : ${commenti}" th:if="${commento.post.id == post.id}">
-                <p th:text="${commento.testo}"></p>
+                <!-- Commenti relativi al post -->
+                <div th:each="commento : ${commenti}" th:if="${commento.post.id == post.id}">
+                    <p th:text="${commento.testo}"></p>
+                </div>
             </div>
         </div>
+
 
         <div id="carouselExampleCaptions" class="carousel slide">
             <div class="carousel-indicators">

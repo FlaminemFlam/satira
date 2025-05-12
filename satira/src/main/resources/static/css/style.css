@@ -58,6 +58,12 @@ svg {
     color: black;
 }
 
+.riquadroTest{
+    background-size: cover;
+    width: 500px;
+    height: 500px;
+}
+
 /* TEST ROBE */
 
 .carousel-item.active {

@@ -23,13 +23,13 @@
             <ul class="nav justify-content-end">
 
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                    <a class="nav-link fc-s" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Unisciti a noi</a>
+                    <a class="nav-link fc-s" href="#">Unisciti a noi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link fc-s" href="#">Login</a>
                 </li>
 
             </ul>
@@ -64,7 +64,7 @@
                     <!-- Titolo del post -->
                     <p class="text-primary mt-2">
                         <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}"
-                            class="text-decoration-none">Titolo
+                            class="text-decoration-none fc-s">Titolo
                             libro</a>
                     </p>
                 </div>
@@ -75,7 +75,7 @@
         <div th:each="post : ${posts}" class="col-lg-3 text-center p-2">
             <!-- Titolo del post -->
             <h4 class="text-primary mt-2">
-                <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}" class="text-decoration-none">Titolo
+                <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}" class="text-decoration-none fc-s">Titolo
                     libro</a>
             </h4>
 

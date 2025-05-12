@@ -31,7 +31,8 @@ public class AdmindashController {
     String token = UUID.randomUUID().toString(); //Creo un token univoco per l'invio mail grazie alla classe UUID di java.util
     
     @GetMapping
-    public String renderPage(){
+    public String renderPage(Model model){
+        model.addAttribute("admin", new Admin());
         return "admindash";
     }
     

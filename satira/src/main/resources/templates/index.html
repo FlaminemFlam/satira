@@ -89,12 +89,58 @@
                 <p th:text="${commento.testo}"></p>
             </div>
         </div>
+
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img th:src="@{immagini/papa1.png}" class="d-block" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                </div>
+                <div class="carousel-item" th:each="post : ${posts}">
+                    <img th:src="@{immagini/papa1.png}" class="d-block" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 th:text="${post.titolo}" class="fc-t">Second slide label</h5>
+                        <p th:text="${post.contenuto}" class="fc-t">Some representative placeholder content for the
+                            second slide.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                    <path
+                        d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+                </svg>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <path
+                        d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                </svg>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
     </div>
-   
+
     <footer class="fc-fb text-center text-white mt-5">
-    
+
         <div class="container p-4">
-    
+
             <section class="">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
@@ -126,16 +172,16 @@
                     </div>
                 </div>
             </section>
-          
+
         </div>
 
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2025 CopyrightMemetico:
             <a class="text-white" href="#">LaSantaMeme.com</a>
         </div>
-       
+
     </footer>
- 
+
 </body>
 
 </html>

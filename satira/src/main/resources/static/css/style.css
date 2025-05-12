@@ -46,3 +46,27 @@
 a:hover {
     color:var(--second-color)  !important;
 }
+
+img {
+    width: 500px;
+    justify-self: center;
+}
+
+svg {
+    height: 70px;
+    width: 70px;
+    color: black;
+}
+
+/* TEST ROBE */
+
+.carousel-item.active {
+    background-size: contain;
+    /* width: 500px; */
+    height: 500px;
+}
+
+div#carouselExampleCaptions {
+    width: 700px;
+    justify-self: center;
+}

@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -17,7 +16,7 @@
 <body>
     <div class="container fc-pb">
         <div class="row text-center p-5">
-            <h1><strong class="fc-t">LA SANTA MEME</strong></h1> 
+            <h1><strong class="fc-t">LA SANTA MEME</strong></h1>
         </div>
         <div class="row">
             <div class="col m-3 ">
@@ -25,13 +24,37 @@
                     Papa lancia linea di profumi: 'Eau de Sacrestia', con note d’incenso e burocrazia'
                 </h3>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur obcaecati ad cum cupiditate asperiores porro fuga quaerat optio ipsam culpa eligendi quam quis vel sit mollitia voluptate facilis, totam eius dignissimos ea repellendus. Animi distinctio sunt culpa numquam unde recusandae beatae, porro dicta aut, provident rem optio? Accusamus, impedit blanditiis aliquid alias dolorem velit eum laudantium tenetur sequi officia minima eaque at voluptates sunt asperiores facere nihil numquam nostrum! Doloremque ratione, qui dolores at optio, ab suscipit eos corrupti minus eveniet quibusdam beatae culpa vitae accusantium. Possimus, reprehenderit accusamus explicabo totam ab dolorum quos! Quo consequatur illo possimus modi cupiditate ratione, ea praesentium odit quisquam fugit cumque quasi consectetur nesciunt delectus deserunt reprehenderit quidem cum totam harum molestias? Exercitationem rem nisi, debitis adipisci voluptatibus fugiat amet incidunt maxime qui nobis! Quam, atque omnis. Ut consectetur perferendis aspernatur qui nobis accusantium nesciunt atque! Ad, laboriosam quia, maiores vel perspiciatis ab ut eum laborum nihil ducimus sed, cupiditate quaerat dolores iure veritatis fugiat autem deleniti voluptatibus quasi magnam aperiam. Vel deleniti sapiente, iusto consequuntur, fugiat iure aliquam consequatur debitis ipsum, in tempora nostrum corrupti! Culpa adipisci officiis, quia esse atque autem reprehenderit modi sapiente veritatis pariatur aperiam saepe laudantium rem error harum placeat ducimus earum inventore aut cum vel fugiat libero deleniti! Minima quas fuga quae, non delectus eaque fugiat odio autem, iusto blanditiis doloribus nam laboriosam aspernatur hic labore, suscipit rem quo. Aliquid error earum, consectetur fugiat distinctio similique ducimus amet architecto alias at? Officiis ullam, impedit illum, animi eos repudiandae quos, necessitatibus corporis perferendis nobis reprehenderit asperiores repellat provident error. Tenetur labore quos harum accusantium eius corrupti repellat autem suscipit voluptatem tempore id earum aliquid iure esse blanditiis saepe officiis fugiat, unde nam laudantium? Explicabo eligendi alias quia blanditiis assumenda maiores, reiciendis, fuga itaque tenetur numquam facere totam! Libero qui fugiat enim ab.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur obcaecati ad cum cupiditate
+                    asperiores porro fuga quaerat optio ipsam culpa eligendi quam quis vel sit mollitia voluptate
+                    facilis, totam eius dignissimos ea repellendus. Animi distinctio sunt culpa numquam unde recusandae
+                    beatae, porro dicta aut, provident rem optio? Accusamus, impedit blanditiis aliquid alias dolorem
+                    velit eum laudantium tenetur sequi officia minima eaque at voluptates sunt asperiores facere nihil
+                    numquam nostrum! Doloremque ratione, qui dolores at optio, ab suscipit eos corrupti minus eveniet
+                    quibusdam beatae culpa vitae accusantium. Possimus, reprehenderit accusamus explicabo totam ab
+                    dolorum quos! Quo consequatur illo possimus modi cupiditate ratione, ea praesentium odit quisquam
+                    fugit cumque quasi consectetur nesciunt delectus deserunt reprehenderit quidem cum totam harum
+                    molestias? Exercitationem rem nisi, debitis adipisci voluptatibus fugiat amet incidunt maxime qui
+                    nobis! Quam, atque omnis. Ut consectetur perferendis aspernatur qui nobis accusantium nesciunt
+                    atque! Ad, laboriosam quia, maiores vel perspiciatis ab ut eum laborum nihil ducimus sed, cupiditate
+                    quaerat dolores iure veritatis fugiat autem deleniti voluptatibus quasi magnam aperiam. Vel deleniti
+                    sapiente, iusto consequuntur, fugiat iure aliquam consequatur debitis ipsum, in tempora nostrum
+                    corrupti! Culpa adipisci officiis, quia esse atque autem reprehenderit modi sapiente veritatis
+                    pariatur aperiam saepe laudantium rem error harum placeat ducimus earum inventore aut cum vel fugiat
+                    libero deleniti! Minima quas fuga quae, non delectus eaque fugiat odio autem, iusto blanditiis
+                    doloribus nam laboriosam aspernatur hic labore, suscipit rem quo. Aliquid error earum, consectetur
+                    fugiat distinctio similique ducimus amet architecto alias at? Officiis ullam, impedit illum, animi
+                    eos repudiandae quos, necessitatibus corporis perferendis nobis reprehenderit asperiores repellat
+                    provident error. Tenetur labore quos harum accusantium eius corrupti repellat autem suscipit
+                    voluptatem tempore id earum aliquid iure esse blanditiis saepe officiis fugiat, unde nam laudantium?
+                    Explicabo eligendi alias quia blanditiis assumenda maiores, reiciendis, fuga itaque tenetur numquam
+                    facere totam! Libero qui fugiat enim ab.
                 </p>
-            
+
             </div>
             <div class="col-3 m-3">
                 <p>
-                    Papa Francesco sostituisce la Papamobile con un monopattino elettrico: 'Finalmente posso fare il giro della piazza in 5 minuti!'
+                    Papa Francesco sostituisce la Papamobile con un monopattino elettrico: 'Finalmente posso fare il
+                    giro della piazza in 5 minuti!'
                 </p>
                 <p>
                     Conclave segreto rivela: i cardinali votano solo chi sa fare la pizza perfetta
@@ -41,8 +64,16 @@
                 </p>
 
             </div>
+
+            <div th:each="post : ${posts}" class="col-lg-3 text-center p-2">
+                <h4 class="text-primay mt-2"><a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}">Titolo
+                        libro</a></h4>
+                <!-- <h4 class="text-primay mt-2"><span th:href="@{/dettaglio(id=${post.id})}"
+                        th:text="${post.commenti.testo}">Titolo
+                        libro</span></h4> -->
+            </div>
         </div>
-        
+
     </div>
 
 </body>

@@ -6,6 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    test dash
+    <form action="/create-admin" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="nickname">Nickname:</label>
+    <input type="text" id="nickname" name="nickname" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Crea Admin</button>
+</form>
 </body>
 </html>

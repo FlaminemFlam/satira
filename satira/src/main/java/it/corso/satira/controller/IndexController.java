@@ -34,7 +34,7 @@ public class IndexController {
     public String renderPage(Model model, @RequestParam(required = false) Integer id){
         List<Post> posts = postService.elencoPost();
         List<Commento> commenti = commentiService.elencoCommenti();
-        Admin admin = id == null? new Admin() : adminService.datiAdmin(id);
+        Admin admin = id == null ? new Admin() : adminService.datiAdmin(id);
         model.addAttribute("posts", posts);
         model.addAttribute("commenti",commenti);
         model.addAttribute("admin",admin);

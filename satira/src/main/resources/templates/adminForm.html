@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,10 +16,10 @@
                         <h2>Richiedi l'accesso come Admin</h2>
                     </div>
                     <div class="card-body">
-                        <form action="#" th:action="@{/admin-request}" th:object="${BecomeAdmin}" method="post">
+                        <form action="#" th:action="@{/adminForm}" th:object="${BecomeAdmin}" method="post">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Nome:</label>
-                                <input type="text" id="name" th:field="*{name}" class="form-control" placeholder="Inserisci il tuo nome" required>
+                                <label for="username" class="form-label">Nome:</label>
+                                <input type="text" id="username" th:field="*{username}" class="form-control" placeholder="Inserisci il tuo nome" required>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email:</label>

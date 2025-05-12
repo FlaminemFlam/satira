@@ -16,6 +16,7 @@ import it.corso.satira.model.BecomeAdmin;
 import it.corso.satira.repository.AdminRepository;
 import it.corso.satira.service.EmailService;
 
+//localhost:8080/admidash
 @Controller
 @RequestMapping("/admindash")
 public class AdmindashController {
@@ -36,18 +37,18 @@ public class AdmindashController {
     
     
     // Mostra il form precompilato
-    @GetMapping("/admin-request")
+    @GetMapping("/adminForm")
     public String showAdminRequestForm(Model model) {
         BecomeAdmin form = new BecomeAdmin();
         // Imposta dei valori di default (se necessario)
-        form.setUsername("Nome di Default");       
-        form.setEmail("email@example.com");
+        form.setUsername("");       
+        form.setEmail("");
         model.addAttribute("BecomeAdmin", form);
-        return "adminForm"; // nome del template Thymeleaf (es. admin-form.html)
+        return "/adminForm"; 
     }
     
     // Gestisce l'invio del form
-    @PostMapping("/admin-request")
+    @PostMapping
     public String processAdminRequest(@ModelAttribute("BecomeAdmin") BecomeAdmin form) {
         // Costruisci il contenuto dell'email, sostituendo i placeholder con i valori del form
         String confirmationLink = "http://localhost:8080/admindash?token=" + token;
@@ -57,7 +58,7 @@ public class AdmindashController {
         "Cordiali Saluti,\nIl Team";
         emailService.sendMail(form.getEmail(), "Conferma Admin", emailBody);
         
-        return "redirect:/adminForm?success";
+        return "redirect:/admindash/adminForm?success";
     }
     
     @PostMapping("/create-admin")

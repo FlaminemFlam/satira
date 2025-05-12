@@ -18,15 +18,15 @@
         <div class="container d-flex navImg">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
             <img th:src="@{immagini/memeLogo.png}" alt="logo" style="width: 10%;">
-            <h1><strong  class="fc-t"><a th:href="@{/} " class="text-decoration-none fc-t">LA SANTA MEME</a></strong></h1>
+            <h1 class="p-0"><strong  class="fc-t"><a th:href="@{/} " class="text-decoration-none fc-t">LA SANTA MEME</a></strong></h1>
 
             <ul class="nav justify-content-end">
 
                 <li class="nav-item">
-                    <a class="nav-link fc-t" href="#">Unisciti a noi</a>
+                    <a class="nav-link fc-t fs-4" th:href="@{/adminForm} ">Unisciti a noi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fc-t" href="#">Login</a>
+                    <a class="nav-link fc-t fs-4" href="#">Login</a>
                 </li>
 
             </ul>
@@ -93,7 +93,7 @@
         </div>
 
 
-        <div id="carouselExampleCaptions" class="carousel slide">
+        <div id="carouselExampleCaptions" class="carousel slide py-5">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>

@@ -63,10 +63,10 @@
 
             </div>
             <div class="col m-3">
-                <h5>FORSE TE PO'NTERESSA':</h5>
+                <h3>FORSE TE PO'NTERESSA':</h3>
                 <div th:each="post : ${posts}" class="col">
                     <!-- Titolo del post -->
-                    <p class="text-primary mt-2">
+                    <p class="text-primary mt-2 fs-4">
                         <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}"
                             class="text-decoration-none fc-t">Titolo
                             libro</a>
@@ -117,7 +117,7 @@
                     <img th:src="${post.immaginePost}" class="d-block" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h1 th:text="${post.titolo}" class="fc-s bordo">Second slide label</h1>
-                        <h5 th:text="${post.contenuto}" class="fc-s bordo">Some representative placeholder content for the
+                        <h5 th:text="${post.contenuto}" class=" bordo">Some representative placeholder content for the
                             second slide.</h5>
                     </div>
                 </div>

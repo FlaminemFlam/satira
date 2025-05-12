@@ -16,7 +16,7 @@
                         <h2>Richiedi l'accesso come Admin</h2>
                     </div>
                     <div class="card-body">
-                        <form action="#" th:action="@{/adminForm}" th:object="${BecomeAdmin}" method="post">
+                        <form action="#" th:action="@{/admindash/adminForm}" th:object="${BecomeAdmin}" method="post">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Nome:</label>
                                 <input type="text" id="username" th:field="*{username}" class="form-control" placeholder="Inserisci il tuo nome" required>

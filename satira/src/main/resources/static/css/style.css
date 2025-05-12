@@ -30,6 +30,14 @@
     color: var(--four-color);
 }
 
+.fc-tb {
+    background-color: var(--third-color);
+}
+
+.fc-fb {
+    background-color: var(--four-color);
+}
+
 .pap1 {
     height: 200px;
     width: auto;

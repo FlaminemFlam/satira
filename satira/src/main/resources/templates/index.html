@@ -15,7 +15,7 @@
 
 <body class="fc-pb">
     <nav class="navbar navbar-expand-lg fc-fb ">
-        <div class="container d-flex">
+        <div class="container d-flex navImg">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
             <img th:src="@{immagini/memeLogo.png}" alt="logo" style="width: 10%;">
             <h1><strong class="fc-t">LA SANTA MEME</strong></h1>
@@ -41,7 +41,7 @@
 
         <div class="row justify-content-center">
             <div class="col-8 m-3 ">
-                <div class="riquadroTest" th:style="'background-image: url(' + @{/immagini/papa1.png} + ');'">
+                <div class="riquadroTest" th:style="'background-image: url(' + ${posts[0].immaginePost} + ');'">
 
                 </div>
                 <!-- <img th:src="@{immagini/papa1.png}" class="d-block" alt="..."> -->
@@ -114,11 +114,11 @@
                     </div>
                 </div>
                 <div class="carousel-item" th:each="post : ${posts}">
-                    <img th:src="@{immagini/papa1.png}" class="d-block" alt="...">
+                    <img th:src="${post.immaginePost}" class="d-block" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5 th:text="${post.titolo}" class="fc-t">Second slide label</h5>
-                        <p th:text="${post.contenuto}" class="fc-t">Some representative placeholder content for the
-                            second slide.</p>
+                        <h1 th:text="${post.titolo}" class="fc-s bordo">Second slide label</h1>
+                        <h5 th:text="${post.contenuto}" class="fc-s bordo">Some representative placeholder content for the
+                            second slide.</h5>
                     </div>
                 </div>
             </div>

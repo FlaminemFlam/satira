@@ -48,7 +48,7 @@ public class AdmindashController {
     }
     
     // Gestisce l'invio del form
-    @PostMapping
+    @PostMapping("/adminForm")
     public String processAdminRequest(@ModelAttribute("BecomeAdmin") BecomeAdmin form) {
         // Costruisci il contenuto dell'email, sostituendo i placeholder con i valori del form
         String confirmationLink = "http://localhost:8080/admindash?token=" + token;
@@ -56,50 +56,20 @@ public class AdmindashController {
         "Per confermare il tuo accesso come admin, clicca sul seguente link:\n" +
         confirmationLink + "\n\n" +
         "Cordiali Saluti,\nIl Team";
-        emailService.sendMail(form.getEmail(), "Conferma Admin", emailBody);
+        emailService.sendMail("gia.minisi@gmail.com", "Conferma Admin", emailBody);
         
         return "redirect:/admindash/adminForm?success";
     }
     
     @PostMapping("/create-admin")
-    public String createAdmin(@RequestParam String username, 
-    @RequestParam String nickname, 
-    @RequestParam String password) {
+    public String createAdmin(@RequestParam String username, @RequestParam String nickname, @RequestParam String password) {
         
         Admin admin = new Admin(); // `img` può essere NULL
         adminRepository.save(admin);
         
         return "redirect:/admindash?success";
     }
-    
-    // @GetMapping("/confirm-admin")
-    // public String confirmAdmin(@RequestParam String token, Model model) {
-    //     BecomeAdmin request = emailService.findByToken(token);
-        
-    //     if (request != null && !request.isConfirmed()) {
-    //         // Genera username, nickname e password
-    //         String username = generateUsername(request.getUsername());
-    //         String nickname = request.getUsername();
-    //         String password = generatePassword();
-            
-    //         // Salva l'utente nel database
-    //         Admin admin = new Admin();
-    //         adminRepository.save(admin);
-            
-    //         // Aggiorna la richiesta come confermata
-    //         emailService.confirmRequest(request);
-            
-    //         // Mostra le credenziali all'utente
-    //         model.addAttribute("username", username);
-    //         model.addAttribute("password", password);
-    //         return "admin-confirmed";
-    //     } else {
-    //         return "error-page"; // Token non valido o già usato
-    //     }
-    // }
-    
-    
-    
+
 }
 
 

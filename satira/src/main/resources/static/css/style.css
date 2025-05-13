@@ -87,3 +87,7 @@ div#carouselExampleCaptions {
     width: 1000px;
     justify-self: center;
 }
+
+.justify-self-center{
+    justify-self: center;
+}

@@ -20,7 +20,7 @@
                         <h2>Crea un Admin</h2>
                     </div>
                     <div class="card-body">
-                        <form th:action="@{/createAdmin}" th:object="${admin}" method="post" enctype="multipart/form-data">
+                        <form th:action="@{/admindash/creaAdmin}" th:object="${admin}" method="post" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username:</label>
                                 <input type="text" id="username" th:field="*{username}" class="form-control" required>

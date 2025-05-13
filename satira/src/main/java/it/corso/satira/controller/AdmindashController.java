@@ -16,6 +16,7 @@ import it.corso.satira.service.AdminService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
+
 //localhost:8080/admidash
 @Controller
 @RequestMapping("/admindash")
@@ -39,19 +40,35 @@ public class AdmindashController {
         return "admindash";
     }
 
-    @PostMapping
-    public String createAdmin(@Valid @ModelAttribute Admin admin, BindingResult result, Model model) {
-        if(result.hasErrors()){
-            return "admindash";
+    @GetMapping("/creaAdmin")
+        public String renderPagina(HttpSession session, Model model, @RequestParam(required = false) String esito){
+        if(session.getAttribute("admin") == null){
+            return "redirect:/loginAdmin";
+        }
+        Admin adminSessione = (Admin) session.getAttribute("admin");
+        Admin admin = adminService.datiAdmin(adminSessione.getId());
+        model.addAttribute("admin", admin);
+        model.addAttribute("esito", esito);
+        return "creaAdmin";
+        }
+
+
+    @PostMapping("/creaAdmin")
+        public String createAdmin(HttpSession session, @Valid @ModelAttribute Admin admin, BindingResult result, Model model) {
+        if(session.getAttribute("admin") == null) {
+        return "redirect:/loginAdmin";
+        }
+        if(result.hasErrors()) {
+        return "creaAdmin";
         }
         String controlloAdmin = adminService.controlloUsername(admin.getUsername());
-        if(controlloAdmin != null){
-            model.addAttribute("controlloAdmin", controlloAdmin);
-            return "admindash";
+        if(controlloAdmin != null) {
+        model.addAttribute("controlloAdmin", controlloAdmin);
+        return "creaAdmin";
         }
         adminService.registrazioneAdmin(admin);
-        return "redirect:/admindash?success";
-    }
+        return "redirect:/admindash/creaAdmin?success";
+}
 
 
 }

@@ -38,7 +38,7 @@ public class FormAdminController {
     @PostMapping
     public String processAdminRequest(@ModelAttribute("BecomeAdmin") BecomeAdmin form) {
         // Costruisci il contenuto dell'email, sostituendo i placeholder con i valori del form
-        String confirmationLink = "http://localhost:8080/admindash?token=" + token;
+        String confirmationLink = "http://localhost:8080/admindash/creaAdmin?token=" + token;
         String emailBody = "Salve mi chiamo " + form.getCognome() + " " + form.getNome() + ",\n\n" +
         "Richiedo di avere accesso come admin, clicca sul seguente link:\n" +
         confirmationLink + "\n\n" +

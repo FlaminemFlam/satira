@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SatiraApplication<satira>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "it.corso.satira.SatiraApplication",
+            "projectName": "satira",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

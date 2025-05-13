@@ -71,11 +71,13 @@
                 <h5 class="mb-3"><strong>FORSE TE PO' NTERESSA':</strong></h5>
                 <div th:each="post : ${posts}" class="col">
                     <!-- Titolo del post -->
-                    <div class="text-primary mb-2 fs-6">
-                        <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}"
-                            class="text-decoration-none fc-t">Titolo
-                            libro</a>
-                    </div>
+                    <ul class="lista-croci">
+                        <li class="text-primary mb-2 fs-6">
+                            <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}"
+                                class="text-decoration-none fc-t">Titolo
+                                libro</a>
+                        </li>
+                    </ul>
                 </div>
 
             </div>
@@ -96,7 +98,7 @@
                 <!-- Commenti relativi al post -->
                 <div th:each="commento : ${commenti}" th:if="${commento.post.id == post.id}">
                     <p th:text="${commento.testo}"></p>
-                </div> -->
+                </div> 
             </div>
         </div>
 

@@ -108,7 +108,19 @@ div#carouselExampleCaptions {
     color: #FF2626;
     background-color: #0c0c0c;
 }
+/* LIsta croci */
 
+.lista-croci {
+    list-style: none;
+    padding-left: 0;
+}
+
+.lista-croci li::before {
+    content: "✝ ";
+    color: black;
+    margin-right: 0.5em;
+    font-size: 1.2em;
+}
 
 
 

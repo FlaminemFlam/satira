@@ -50,4 +50,5 @@ public class Post {
     )
     private List <Commento> commento = new ArrayList<>();
 
+    private Integer visible; 
 }

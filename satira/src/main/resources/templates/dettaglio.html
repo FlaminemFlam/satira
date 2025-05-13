@@ -17,6 +17,8 @@
 </head>
 
 <body class="fc-pb">
+
+    <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg fc-fb ">
         <div class="container d-flex navImg ">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
@@ -25,48 +27,69 @@
                         MEME</a></strong></h1>
 
             <ul class="nav justify-content-end">
-
                 <li class="nav-item">
                     <a class="nav-link fc-t fs-4" th:href="@{/adminForm} ">Unisciti a noi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link fc-t fs-4" th:href="@{/loginAdmin} ">Login</a>
                 </li>
-
             </ul>
         </div>
-
     </nav>
+    
+   <!--POST--> 
     <div class="container  py-5">
-
         <div class="d-flex">
             <div class="col-8">
                 <h1 th:text="${post.titolo}"></h1>
                 <p class="fs-4" th:text="${post.contenuto}"></p>
                 <p class="text-end" th:text="|Scritto e interpretato da: ${post.admin.nickname}|"></p>
             </div>
-
             <div class="col p-5">
                 <img th:src="${post.immaginePost}" alt="img">
             </div>
-
-
         </div>
-
-        <div class="col ">
-            <h3>COMMENTI:</h3>
-            <div th:each="commento : ${commenti}" class="d-flex">
-                <p class="fs-5 col-8 px-1" th:if="${commento.post.id == post.id}"
-                    th:text="${commento.testo}"></p>
-                <p class="fs-5 col text-end" th:if="${commento.post.id == post.id}"
-                    th:text="${commento.dataCommento}"></p>
-            </div>
-
-        </div>
-
-
     </div>
 
+    <!--AUTORE-->
+    
+        <!--COMMENTI-->
+       <section class="comments">
+        <div class="page-width container pt-3">
+            <div>
+              <h3>Commenti</h3>
+              <hr />
+              <!-- LASCIA UN COMMENTO -->
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Lascia un commento</h5>
+                  <hr />
+                  <form>
+                    <div class="form-group">
+                      <textarea rows="3" class="form-control bg-light" placeholder="Scrivi qui" style="resize: none;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary btn-block">Pubblica</button>
+                  </form>
+                </div>
+              </div>
+
+                <!--ELENCO COMMENTI-->
+                <div class="commento-container wrapper">
+                    <div th:each="commento : ${commenti}" class="d-flex">
+                      <div class="commento-testo">
+                          <p class="fs-5 col-8 px-1" th:if="${commento.post.id == post.id}" th:text="${commento.testo}"></p> <!--TESTO-->
+                          <p class="fs-5 col text-end" th:if="${commento.post.id == post.id}" th:text="${#temporals.format(commento.dataCommento, 'dd-MM-yyyy | HH:mm')}"></p> 
+                       </div>
+                    </div>
+                </div>
+		    </div>
+		</div>
+       </section>
+
+
+
+
+    <!--FOOTER-->
     <footer class="fc-fb text-center text-white mt-5">
 
         <div class="container p-4">

@@ -255,3 +255,16 @@ div#carouselExampleCaptions {
 .login-btn:hover {
   opacity: .9;
 }
+
+.commento-container {
+	position: relative;
+	display: block;
+	width: 80%;
+	height: 100%;
+	margin: 0 auto;
+    background-color: white;
+}
+
+.commento-testo{
+    margin-top:auto;
+}

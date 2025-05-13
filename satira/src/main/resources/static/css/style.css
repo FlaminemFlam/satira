@@ -109,6 +109,17 @@ div#carouselExampleCaptions {
     background-color: #0c0c0c;
 }
 
+
+
+
+/*Scorrimento + opzioni di navigazione*/
+
+.tipo-display {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+}
+
 .notizie-scorrimento {
     width: 100%;
     overflow: hidden;
@@ -116,7 +127,6 @@ div#carouselExampleCaptions {
     color: #FFE6E6;
     padding: 10px 0;
     white-space: nowrap;
-    font-size: 1rem;
 }
 
 .scorrimento-contenuto {

@@ -21,7 +21,7 @@
         <div class="container d-flex navImg">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
             <img th:src="@{immagini/memeLogo.png}" alt="logo" style="width: 10%;">
-            <h1 class="p-0"><strong  class="fc-t"><a th:href="@{/} " class="text-decoration-none fc-t">LA SANTA MEME</a></strong></h1>
+            <div class="p-0 fs-1"><strong  class="fc-t"><a th:href="@{/} " class="text-decoration-none fc-t">LA SANTA MEME</a></strong></div>
 
             <ul class="nav justify-content-end">
 
@@ -35,11 +35,21 @@
             </ul>
         </div>
     </nav>
+<!-- 
+    <div class="d-flex fc-fb fc-p tipo-display py-2 fs-5">
+        <a href="#" class="text-white text-decoration-none">Home</a>
+        <a href="#" class="text-white text-decoration-none">Papa</a>
+        <a href="#" class="text-white text-decoration-none">Cardinali</a>
+        <a href="#" class="text-white text-decoration-none">Vaticano</a>
+        <a href="#" class="text-white text-decoration-none">Archivio</a>
+        <a href="#" class="text-white text-decoration-none">Top meme</a>
+        <a href="#" class="text-white text-decoration-none">Altro</a>
+    </div> -->
 
-    <div class="d-flex fc-fb fc-p">
+    <div class="d-flex fc-fb fc-p fs-4 p-2">
         <div class="notizie-scorrimento">
             <div class="scorrimento-contenuto">
-                La sede della santa meme dà il benvenuto a grandi e piccini :)
+                La Santa Meme apre le sue porte a tutte le anime: giovani, vecchie e smanettone.
             </div>
         </div>
     </div>
@@ -48,20 +58,20 @@
 
 
         <div class="row justify-content-center">
-            <div class="col-8 m-3 ">
+            <div class="col-9 m-3 ">
                 <div class="riquadroTest" th:style="'background-image: url(' + ${posts[0].immaginePost} + ');'">
 
                 </div>
                 <!-- <img th:src="@{immagini/papa1.png}" class="d-block" alt="..."> -->
-                <h3 th:text="${posts[0].titolo}" class="mt-2"></h3>
+                <h3 class="mt-2"><strong th:text="${posts[0].titolo}"></strong></h3>
                 <p th:text="${posts[0].contenuto}"></p>
 
             </div>
             <div class="col m-3">
-                <h4 class="mb-3">FORSE TE PO' NTERESSA':</h4>
+                <h5 class="mb-3"><strong>FORSE TE PO' NTERESSA':</strong></h5>
                 <div th:each="post : ${posts}" class="col">
                     <!-- Titolo del post -->
-                    <div class="text-primary mb-2 fs-5">
+                    <div class="text-primary mb-2 fs-6">
                         <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}"
                             class="text-decoration-none fc-t">Titolo
                             libro</a>
@@ -72,19 +82,19 @@
 
         </div>
         <div class="d-flex">
-            <div th:each="post : ${posts}" class="col-lg-3 text-center p-2">
+            <div th:each="post : ${posts}" class="col-4 text-center p-2">
                 <!-- Titolo del post -->
-                <h4 class="text-primary mt-1">
-                    <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}"
-                        class="text-decoration-none fc-t">Titolo
-                        libro</a>
-                </h4>
+                <h5 class="text-primary mt-1">
+                    <a th:href="@{/dettaglio(id=${post.id})}" class="text-decoration-none fc-t">
+                        <strong th:text="${post.titolo}">Titolo libro</strong>
+                    </a>
+                </h5>
 
                 <!-- Admin che ha creato il post -->
-                <span class="text-muted" th:text="|Creato da: ${post.admin.username}|"></span>
+                <span class="text-muted fs-7" th:text="|Creato da: ${post.admin.username}|"></span>
 
                 <!-- Commenti relativi al post -->
-                <div th:each="commento : ${commenti}" th:if="${commento.post.id == post.id}">
+                <div th:each="commento : ${commenti}" th:if="${commento.post.id == post.id}" class="fs-6">
                     <p th:text="${commento.testo}"></p>
                 </div>
             </div>

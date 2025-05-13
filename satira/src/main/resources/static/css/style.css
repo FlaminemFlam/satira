@@ -181,6 +181,46 @@ div#carouselExampleCaptions {
     }
 }
 
+/* Scorrimento notizie */
+.ticker-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: default;
+    position: relative;
+}
+
+.ticker {
+    display: inline-block;
+    animation: ticker-scroll linear infinite;
+}
+
+.ticker-item {
+    display: inline-block;
+    margin-right: 60px;
+}
+
+.ticker-link {
+    color: #BD1616;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.ticker-link:hover {
+    color: #FF2626;
+}
+
+/* Animazione base */
+@keyframes ticker-scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
 
 
 /*LOGIN*/

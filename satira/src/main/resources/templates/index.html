@@ -80,28 +80,17 @@
                 </div>
             </div>
         </div>
-
-
-
-        <div class="d-flex">
-            <div th:each="post : ${posts}" class="col-4 text-center p-2">
-                <!-- Titolo del post -->
-                <h5 class="text-primary mt-1">
-                    <a th:href="@{/dettaglio(id=${post.id})}" class="text-decoration-none fc-t">
-                        <strong th:text="${post.titolo}">Titolo libro</strong>
+        <hr>
+        <div class="ticker-wrapper" onmouseenter="pauseTicker()" onmouseleave="resumeTicker()">
+            <div class="ticker" id="ticker">
+                <div class="ticker-item" th:each="post : ${posts}">
+                    <a th:href="@{/notizie/{id}(id=${post.id})}" class="ticker-link">
+                        <strong th:text="${post.titolo}">Titolo</strong>
                     </a>
-                </h5>
-
-                <!-- Admin che ha creato il post -->
-                <span class="text-muted fs-7" th:text="|Creato da: ${post.admin.username}|"></span>
-
-                <!-- Commenti relativi al post -->
-                <div th:each="commento : ${commenti}" th:if="${commento.post.id == post.id}">
-                    <p th:text="${commento.testo}"></p>
-                </div> 
+                </div>
             </div>
         </div>
-
+        <hr>
 
         <div id="carouselExampleCaptions" class="carousel slide py-5">
             <div class="carousel-indicators">
@@ -158,23 +147,9 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
                         <h5 class="text-uppercase">Navigazione</h5>
-                        <ul class="list-unstyled mb-0">
-                            <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Archivio</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Top Meme</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Contattaci</a></li>
-                        </ul>
+                        <div><a href="#" class="text-white text-decoration-none">Contattaci</a></div>
                     </div>
 
-                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase">Categorie</h5>
-                        <ul class="list-unstyled mb-0">
-                            <li><a href="#" class="text-white text-decoration-none">Papa</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Vaticano</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Cardinali</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Altro</a></li>
-                        </ul>
-                    </div>
 
                     <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
                         <h5 class="text-uppercase">La Santa Meme</h5>
@@ -223,6 +198,38 @@
 
         window.addEventListener('load', setSidebarHeight);
         window.addEventListener('resize', setSidebarHeight);
+
+        let ticker;
+        let animationDuration;
+
+        window.addEventListener("DOMContentLoaded", () => {
+            ticker = document.getElementById("ticker");
+
+            // Duplica le notizie per loop continuo
+            const items = Array.from(ticker.children);
+            items.forEach(item => {
+                ticker.appendChild(item.cloneNode(true));
+            });
+
+            // Calcola larghezza totale
+            const totalWidth = Array.from(ticker.children).reduce((acc, el) => {
+                return acc + el.offsetWidth + 60;
+            }, 0);
+
+            // Imposta velocità
+            const speed = 200; // px/sec
+            animationDuration = totalWidth / speed;
+
+            ticker.style.animationDuration = `${animationDuration}s`;
+        });
+
+        function pauseTicker() {
+            ticker.style.animationPlayState = "paused";
+        }
+
+        function resumeTicker() {
+            ticker.style.animationPlayState = "running";
+        }
     </script>
 
 </body>

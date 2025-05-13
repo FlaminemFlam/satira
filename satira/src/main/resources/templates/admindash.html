@@ -46,26 +46,21 @@
 
         <!-- SEZIONE POST -->
 
-        <div class="row justify-content-center mt-4">
+    <div class="row justify-content-center mt-4">
             <div class="col-10">
-                <h4 class="text-center">
-                    POST
-                </h4>
-
-                </h5>
+                <h4 class="text-center">Post</h4>
+                <h5 th:if="${esito != null}" class="text-center text-danger" th:text="${esito}"></h5>
                 <table class="table table-striped">
                     <tr th:each="post : ${posts}">
                         <td class="text-center">
                             <img th:src="${post.immaginePost == null ? 'immagini/no_img.png' : post.immaginePost}"
                                 alt="copertina post" style="max-height: 70px;">
                         </td>
-                        <td class="align-middle" th:text="${post.titolo}">
-
-                        </td>
+                        <td class="align-middle" th:text="${post.titolo}"></td>
                         <td class="align-middle" th:text="${post.contenuto}"></td>
                         <td class="align-middle" th:text="|${post.admin.nickname}|"></td>
                         <td class="align-middle text-end">
-                            <a th:href="@{/adminlibri(id=${post.id})}"
+                            <a th:href="@{/admindash(id=${post.id})}"
                                 class="btn btn-sm btn-outline-primary me-2">Modifica</a>
                             <button class="btn btn-sm btn-outline-danger elimina"
                                 th:value="|${post.titolo}@${post.id}|">Elimina</button>
@@ -81,17 +76,15 @@
         <div class="row justify-content-center mt-4">
             <div class="col-lg-4 border p-4">
                 <h4 class="text-center">Registrazione/Modifica Libro</h4>
-                <form action="/adminlibri" method="post" enctype="multipart/form-data">
-                    <input name="titolo" th:value="${post.titolo}" type="text" placeholder="Titolo"
+                <form action="/admindash" method="post" enctype="multipart/form-data">
+                    <input type="text" name="titolo" th:value="${post.titolo}" placeholder="Titolo"
                         class="form-control mt-3" required>
                     <small th:if="${errori != null && errori.containsKey('titolo')}" th:text="${errori.get('titolo')}"
                         class="text-danger"></small>
-                    <input name="contenuto" th:value="${post.contenuto}" type="text" placeholder="Contenuto"
+                    <input type="text" name="contenuto" th:value="${post.contenuto}" placeholder="Contenuto"
                         class="form-control mt-3" required>
-                    <input name="dataPubblicazione" th:value="${post.dataPubblicazione}" type="datetime"
+                    <input name="dataPubblicazione" th:value="${post.dataPubblicazione}" type="datetime-local"
                         placeholder="Data pubblicazione" class="form-control mt-3" required>
-                    <input name="admin" th:value="${post.admin.nickname}" type="text" placeholder="admin"
-                        class="form-control mt-3" required>
 
 
                     <input type="file" name="immaginePost" class="form-control mt-3">

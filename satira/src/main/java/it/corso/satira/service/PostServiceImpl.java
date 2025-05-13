@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import it.corso.satira.model.Admin;
 import it.corso.satira.model.Commento;
 import it.corso.satira.model.Post;
 import it.corso.satira.repository.PostRepository;
@@ -25,8 +24,6 @@ public class PostServiceImpl implements PostService {
   @Autowired
   private CommentiService commentiService;
 
-  @Autowired
-  private AdminService adminService;
 
 
   @Override
@@ -73,11 +70,10 @@ public class PostServiceImpl implements PostService {
     postRepository.save(post);
   }
 
+  @SuppressWarnings("unchecked")
   @Override
-  public Object[] validazionePost(Post post, String titolo, String contenuto, LocalDateTime dataPubblicazione,
-      Integer idAdmin, Integer visible, Integer idCommento) {
+  public Object[] validazionePost(Post post, String titolo, String contenuto, LocalDateTime dataPubblicazione, Integer visible,Integer idAdmin, Integer idCommento) {
     post.setCommento((List<Commento>) commentiService.datiCommento(idCommento));
-    post.setAdmin(adminService.datiAdmin(idAdmin));
     post.setTitolo(titolo);
     Map<String, String> errori = new HashMap<>();
     if (!titolo.matches("[a-zA-Z0-9\\sàèìòù,.'-]{1,50}")) {

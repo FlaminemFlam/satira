@@ -34,25 +34,31 @@ public class AdmindashController {
 
     private Post post;
 
-    private Map<String,String> errori;
+    private Map<String, String> errori;
 
     @GetMapping
-    public String renderPage(HttpSession session, Model model, @RequestParam(required = false) String esito) {
+    public String renderPage(HttpSession session, Model model, @RequestParam(required = false) Integer id, @RequestParam(required = false) String esito) {
         if (session.getAttribute("admin") == null) {
             return "redirect:/loginAdmin";
         }
+
+        if(errori == null)
+        post = id == null ? new Post() : postService.datiPost(id);
+
         List<Post> posts = postService.elencoPost();
         Admin adminSessione = (Admin) session.getAttribute("admin");
         Admin admin = adminService.datiAdmin(adminSessione.getId());
         model.addAttribute("admin", admin);
         model.addAttribute("esito", esito);
         model.addAttribute("posts", posts);
+        model.addAttribute("post", post);
+        model.addAttribute("errori", errori);
         return "admindash";
     }
 
     @SuppressWarnings("unchecked")
     @PostMapping
-    public String gestioneForm( @RequestParam String titolo, @RequestParam String contenuto, @RequestParam LocalDateTime dataPubblicazione, @RequestParam Integer idAdmin, @RequestParam Integer idCommento, @RequestParam(required = false) MultipartFile immaginePost, @RequestParam Integer visible) {
+    public String gestioneForm(@RequestParam String titolo, @RequestParam String contenuto, @RequestParam LocalDateTime dataPubblicazione, @RequestParam Integer idAdmin, @RequestParam Integer idCommento, @RequestParam(required = false) MultipartFile immaginePost, @RequestParam Integer visible) {
         Object[] esitoValidazione = postService.validazionePost(post, titolo, contenuto, dataPubblicazione, idAdmin,
                 visible, idCommento);
         if (esitoValidazione != null) {

@@ -2,13 +2,16 @@ package it.corso.satira.service;
 
 import java.time.LocalDateTime;
 import java.util.Base64;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import it.corso.satira.model.Admin;
 import it.corso.satira.model.Commento;
 import it.corso.satira.model.Post;
 import it.corso.satira.repository.PostRepository;
@@ -21,6 +24,9 @@ public class PostServiceImpl implements PostService {
 
   @Autowired
   private CommentiService commentiService;
+
+  @Autowired
+  private AdminService adminService;
 
 
   @Override
@@ -65,6 +71,24 @@ public class PostServiceImpl implements PostService {
       }
     }
     postRepository.save(post);
+  }
+
+  @Override
+  public Object[] validazionePost(Post post, String titolo, String contenuto, LocalDateTime dataPubblicazione,
+      Integer idAdmin, Integer visible, Integer idCommento) {
+    post.setCommento((List<Commento>) commentiService.datiCommento(idCommento));
+    post.setAdmin(adminService.datiAdmin(idAdmin));
+    post.setTitolo(titolo);
+    Map<String, String> errori = new HashMap<>();
+    if (!titolo.matches("[a-zA-Z0-9\\sàèìòù,.'-]{1,50}")) {
+      errori.put("titolo", "Caratteri non ammessi in titolo");
+    }
+
+    if(!errori.isEmpty()){
+      return new Object[] {post, errori};
+    }
+    return null;
+  
   }
 
 }

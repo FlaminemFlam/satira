@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admin</title>
     <title>La santissima meme - Admin dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,9 +16,7 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-light">
-    
-    
+
 <body class="fc-pb">
     <nav class="navbar navbar-expand-lg fc-fb ">
         <div class="container d-flex navImg ">
@@ -62,16 +59,16 @@
                             <img th:src="${post.immaginePost == null ? 'immagini/no_img.png' : post.immaginePost}"
                                 alt="copertina post" style="max-height: 70px;">
                         </td>
-                        <td class="align-middle" th:text="${libro.titolo}">
+                        <td class="align-middle" th:text="${post.titolo}">
 
                         </td>
                         <td class="align-middle" th:text="${post.contenuto}"></td>
                         <td class="align-middle" th:text="|${post.admin.nickname}|"></td>
                         <td class="align-middle text-end">
-                            <a th:href="@{/adminlibri(id=${libro.id})}"
+                            <a th:href="@{/adminlibri(id=${post.id})}"
                                 class="btn btn-sm btn-outline-primary me-2">Modifica</a>
                             <button class="btn btn-sm btn-outline-danger elimina"
-                                th:value="|${libro.titolo}@${libro.id}|">Elimina</button>
+                                th:value="|${post.titolo}@${post.id}|">Elimina</button>
                         </td>
                     </tr>
                 </table>

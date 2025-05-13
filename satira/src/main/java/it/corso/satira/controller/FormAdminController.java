@@ -20,7 +20,8 @@ public class FormAdminController {
     @Autowired
     private EmailService emailService;
 
-     String token = UUID.randomUUID().toString(); //Creo un token univoco per l'invio mail grazie alla classe UUID di java.util
+    //Creo un token univoco per l'invio mail grazie alla classe UUID di java.util
+    String token = UUID.randomUUID().toString(); 
 
 
 

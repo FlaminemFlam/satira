@@ -13,8 +13,6 @@ import it.corso.satira.model.Post;
 import it.corso.satira.service.AdminService;
 import it.corso.satira.service.CommentiService;
 import it.corso.satira.service.PostService;
-import it.corso.satira.service.CommentiService;
-import it.corso.satira.service.AdminService;
 
 @Controller
 @RequestMapping("/dettaglio")

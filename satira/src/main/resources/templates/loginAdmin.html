@@ -40,10 +40,10 @@
     <div class="login-form_area">
         <p class="login-title">LOGIN</p>
         <h5 th:if="${errore != null}" th:text="${errore}" class="text-center text-danger"></h5>
-        <form action="/loginadmin" method="post">
+        <form action="/loginAdmin" method="post">
             <!--USERNAME-->
             <div class="login-form_group">
-                <label class="login-sub_title" for="name">Nome</label>
+                <label class="login-sub_title" for="name">Username</label>
                 <input type="text" name="username" placeholder="Scrivi il tuo username" class="login-form_style" required>
             </div>
             <!--PASSWORD-->

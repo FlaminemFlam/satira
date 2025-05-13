@@ -54,33 +54,32 @@
     <!--AUTORE-->
     
         <!--COMMENTI-->
-       <section class="comments">
+       <section>
         <div class="page-width container pt-3">
             <div>
               <h3>Commenti</h3>
               <hr />
               <!-- LASCIA UN COMMENTO -->
-              <div class="card mb-3">
-                <div class="card-body">
-                  <h5 class="card-title">Lascia un commento</h5>
-                  <hr />
-                  <form>
-                    <div class="form-group">
-                      <textarea rows="3" class="form-control bg-light" placeholder="Scrivi qui" style="resize: none;"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-outline-primary btn-block">Pubblica</button>
-                  </form>
-                </div>
-              </div>
+               <div class="card">
+                <div class="card-title">
+                <div class="commento-container">
+                    <input placeholder="Scrivi qui il tuo pensiero" class="commento-input" type="text" />
+                    
+                    <button type="submit" class="commento-label">Pubblica</button>
+                </div></div>
+
 
                 <!--ELENCO COMMENTI-->
-                <div class="commento-container wrapper">
+                <div class="card-body">
+                <div class="commenti-container wrapper">
                     <div th:each="commento : ${commenti}" class="d-flex">
                       <div class="commento-testo">
                           <p class="fs-5 col-8 px-1" th:if="${commento.post.id == post.id}" th:text="${commento.testo}"></p> <!--TESTO-->
                           <p class="fs-5 col text-end" th:if="${commento.post.id == post.id}" th:text="${#temporals.format(commento.dataCommento, 'dd-MM-yyyy | HH:mm')}"></p> 
                        </div>
                     </div>
+                </div>
+                </div>
                 </div>
 		    </div>
 		</div>
@@ -90,7 +89,7 @@
 
 
     <!--FOOTER-->
-    <footer class="fc-fb text-center text-white mt-5">
+    <footer class="fc-fb text-center text-white mt-5 fixed-bottom">
 
         <div class="container p-4">
 

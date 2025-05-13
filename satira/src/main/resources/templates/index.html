@@ -60,14 +60,14 @@
 
             </div>
             <div class="col m-3">
-                <h3>FORSE TE PO'NTERESSA':</h3>
+                <h4 class="mb-3">FORSE TE PO' NTERESSA':</h4>
                 <div th:each="post : ${posts}" class="col">
                     <!-- Titolo del post -->
-                    <p class="text-primary mt-2 fs-4">
+                    <div class="text-primary mb-2 fs-5">
                         <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}"
                             class="text-decoration-none fc-t">Titolo
                             libro</a>
-                    </p>
+                    </div>
                 </div>
 
             </div>
@@ -76,7 +76,7 @@
         <div class="d-flex">
             <div th:each="post : ${posts}" class="col-lg-3 text-center p-2">
                 <!-- Titolo del post -->
-                <h4 class="text-primary mt-2">
+                <h4 class="text-primary mt-1">
                     <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}"
                         class="text-decoration-none fc-t">Titolo
                         libro</a>

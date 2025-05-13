@@ -186,6 +186,7 @@ div#carouselExampleCaptions {
   padding: 12px 10px;
   border-radius: 4px;
   font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .login-form_style:focus, .btn:focus {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -13,67 +13,67 @@
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
 </head>
+
 <body class="fc-pb">
+
     <nav class="navbar navbar-expand-lg fc-fb ">
         <div class="container d-flex navImg">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
             <img th:src="@{immagini/memeLogo.png}" alt="logo" style="width: 10%;">
-            <h1><strong class="fc-t">LA SANTA MEME</strong></h1>
+            <h1 class="p-0"><strong class="fc-t"><a th:href="@{/} " class="text-decoration-none fc-t">LA SANTA
+                        MEME</a></strong></h1>
 
             <ul class="nav justify-content-end">
 
                 <li class="nav-item">
-                    <a class="nav-link fc-t" aria-current="page" href="#">Home</a>
+                    <a class="nav-link fc-t fs-4" th:href="@{/adminForm} ">Unisciti a noi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fc-t" href="#">Unisciti a noi</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fc-t" href="#">Login</a>
+                    <a class="nav-link fc-t fs-4" th:href="@{/loginAdmin} ">Login</a>
                 </li>
 
             </ul>
         </div>
+
     </nav>
 
 
+    <div class="login-container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="#">
+                <h1>Unisciti a noi</h1>
+                <input type="text" placeholder="Name" />
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="#">
+                <h1>Sign in</h1>
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />
+                <a href="#">Forgot your password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="login-container" id="container">
-	<div class="form-container sign-up-container">
-		<form action="#">
-			<h1>Unisciti a noi</h1>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-		<form action="#">
-			<h1>Sign in</h1>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
-			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signUp">Sign Up</button>
-			</div>
-		</div>
-	</div>
-</div>
-
-<footer class="fc-fb text-center text-white piede">
+    <footer class="fc-fb text-center text-white piede">
         <div class="container p-4">
             <section class="">
                 <div class="row">
@@ -118,15 +118,16 @@
 </body>
 <script>
     const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
 
-signUpButton.addEventListener('click', () => {
-	container.classList.add("right-panel-active");
-});
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+    });
 
-signInButton.addEventListener('click', () => {
-	container.classList.remove("right-panel-active");
-});
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+    });
 </script>
+
 </html>

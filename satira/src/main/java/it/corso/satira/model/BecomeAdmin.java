@@ -17,7 +17,8 @@ public class BecomeAdmin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    private String username;
+    private String nome;
+    private String cognome;
     private String email;
     private String token;
     private boolean confirmed = false;

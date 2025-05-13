@@ -10,6 +10,6 @@ public interface AdminService {
     String aggiuntaPost(Integer idPost, HttpSession session);
     void rimozionePost(Integer id, HttpSession session);
     void modificaPost(Integer id, String operation, HttpSession session);
-
+    void registrazioneAdmin(Admin admin);
     String controlloUsername(String username);
 }

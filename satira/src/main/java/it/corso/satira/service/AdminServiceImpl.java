@@ -100,6 +100,11 @@ public String aggiuntaPost(Integer idPost, HttpSession session) {
         return null;
     }
 
+    @Override
+    public void registrazioneAdmin(Admin admin) {
+        adminRepository.save(admin);
+    }
+
 
 }
 

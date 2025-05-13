@@ -27,8 +27,6 @@ public class FormAdminController {
     public String showAdminRequestForm(Model model) {
         BecomeAdmin form = new BecomeAdmin();
         // Imposta dei valori di default (se necessario)
-        form.setUsername("");       
-        form.setEmail("");
         model.addAttribute("BecomeAdmin", form);
         return "/adminForm"; 
     }
@@ -38,10 +36,10 @@ public class FormAdminController {
     public String processAdminRequest(@ModelAttribute("BecomeAdmin") BecomeAdmin form) {
         // Costruisci il contenuto dell'email, sostituendo i placeholder con i valori del form
         String confirmationLink = "http://localhost:8080/admindash?token=" + token;
-        String emailBody = "Salve mi chiamo " + form.getUsername() + ",\n\n" +
+        String emailBody = "Salve mi chiamo " + form.getCognome() + " " + form.getNome() + ",\n\n" +
         "Richiedo di avere accesso come admin, clicca sul seguente link:\n" +
         confirmationLink + "\n\n" +
-        "Cordiali Saluti, " + form.getUsername() + "\n" ;
+        "Cordiali Saluti, " + form.getNome() + " " + form.getCognome() + "\n" ;
         emailService.sendMail("gia.minisi@gmail.com", "Conferma Admin", emailBody);
         
         return "redirect:/adminForm?success";

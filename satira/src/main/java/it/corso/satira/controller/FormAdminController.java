@@ -43,7 +43,7 @@ public class FormAdminController {
         "Richiedo di avere accesso come admin, clicca sul seguente link:\n" +
         confirmationLink + "\n\n" +
         "Cordiali Saluti, " + form.getNome() + " " + form.getCognome() + "\n" ;
-        emailService.sendMail("gia.minisi@gmail.com", "Conferma Admin", emailBody);
+        emailService.sendMail("vaticane777@gmail.com", "Conferma Admin", emailBody);
         
         return "redirect:/adminForm?success";
     }

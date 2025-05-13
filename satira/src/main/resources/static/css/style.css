@@ -133,3 +133,77 @@ div#carouselExampleCaptions {
         transform: translateX(-100%);
     }
 }
+
+
+
+/*LOGIN*/
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.login-form_area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  height: auto;
+  width: auto;
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 3px 4px 0px 1px var(--third-color);
+}
+
+.login-title {
+  color: black;
+  font-weight: 900;
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+.login-sub_title {
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.login-form_group {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin: 10px;
+}
+
+.login-form_style {
+  outline: none;
+  border: 2px solid black;
+  box-shadow: 3px 4px 0px 1px var(--third-color);
+  width: 290px;
+  padding: 12px 10px;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.login-form_style:focus, .btn:focus {
+  transform: translateY(4px);
+  box-shadow: 1px 2px 0px 0px var(--third-color);
+}
+
+.login-btn {
+  padding: 15px;
+  margin: 25px 0px;
+  width: 290px;
+  font-size: 15px;
+  color:white;
+  background: var(--four-color);
+  border-radius: 10px;
+  font-weight: 800;
+  box-shadow: 3px 3px 0px 0px var(--third-color);
+}
+
+.login-btn:hover {
+  opacity: .9;
+}

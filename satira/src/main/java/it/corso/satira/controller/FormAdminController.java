@@ -22,13 +22,15 @@ public class FormAdminController {
 
      String token = UUID.randomUUID().toString(); //Creo un token univoco per l'invio mail grazie alla classe UUID di java.util
 
+
+
         // Mostra il form precompilato
     @GetMapping
     public String showAdminRequestForm(Model model) {
         BecomeAdmin form = new BecomeAdmin();
         // Imposta dei valori di default (se necessario)
         model.addAttribute("BecomeAdmin", form);
-        return "/adminForm"; 
+        return "adminForm"; 
     }
     
     // Gestisce l'invio del form

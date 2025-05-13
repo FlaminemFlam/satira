@@ -108,7 +108,7 @@ div#carouselExampleCaptions {
     color: #FF2626;
     background-color: #0c0c0c;
 }
-/* LIsta croci */
+/* Lista croci */
 
 .lista-croci {
     list-style: none;
@@ -120,6 +120,30 @@ div#carouselExampleCaptions {
     color: black;
     margin-right: 0.5em;
     font-size: 1.2em;
+}
+
+/* Titoli laterali */
+.riquadroTest {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.scroll-laterale {
+    overflow-y: scroll;
+    padding-right: 0.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: #999 transparent;
+}
+
+.scroll-laterale a {
+    color: #BD1616;
+    text-decoration: none;
+}
+
+.scroll-laterale a:hover {
+    color: #FF2626;
 }
 
 

@@ -58,31 +58,31 @@
 
 
         <div class="row justify-content-center">
-            <div class="col-9 m-3 ">
-                <div class="riquadroTest" th:style="'background-image: url(' + ${posts[0].immaginePost} + ');'">
-
-                </div>
-                <!-- <img th:src="@{immagini/papa1.png}" class="d-block" alt="..."> -->
+            <!-- Colonna principale -->
+            <div id="colonnaPrincipale" class="col-9 px-3 d-flex flex-column">
+                <div class="riquadroTest mb-3" th:style="'background-image: url(' + ${posts[0].immaginePost} + ');'"></div>
+        
                 <h3 class="mt-2"><strong th:text="${posts[0].titolo}"></strong></h3>
                 <p th:text="${posts[0].contenuto}"></p>
-
             </div>
-            <div class="col m-3">
-                <h5 class="mb-3"><strong>FORSE TE PO' NTERESSA':</strong></h5>
-                <div th:each="post : ${posts}" class="col">
-                    <!-- Titolo del post -->
+        
+            <!-- Colonna laterale -->
+            <div class="col-3 px-3 d-flex flex-column">
+                <h5 class="mb-3"><strong>FORSE TE PO' NTERESSÀ:</strong></h5>
+        
+                <div id="scrollLaterale" class="scroll-laterale">
                     <ul class="lista-croci">
-                        <li class="text-primary mb-2 fs-6">
+                        <li th:each="post : ${posts}" class="mb-2">
                             <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}"
-                                class="text-decoration-none fc-t">Titolo
-                                libro</a>
+                                class="text-decoration-none fc-t fs-6"></a>
                         </li>
                     </ul>
                 </div>
-
             </div>
-
         </div>
+
+
+
         <div class="d-flex">
             <div th:each="post : ${posts}" class="col-4 text-center p-2">
                 <!-- Titolo del post -->
@@ -194,6 +194,36 @@
         </div>
 
     </footer>
+
+    <script>
+        function setSidebarHeight() {
+                const mainCol = document.getElementById('colonnaPrincipale');
+                const sidebar = document.getElementById('scrollLaterale');
+                const bgDiv = mainCol.querySelector('.riquadroTest');
+
+                // Estrai l'URL dell'immagine di sfondo
+                const bgImage = window.getComputedStyle(bgDiv).backgroundImage;
+                const imageUrl = bgImage.slice(5, -2); // Rimuove 'url("...")'
+
+                const img = new Image();
+                img.onload = function () {
+                    // Calcola l'altezza dell'immagine in base alla larghezza del contenitore
+                    const containerWidth = bgDiv.offsetWidth;
+                    const aspectRatio = img.height / img.width;
+                    const calculatedHeight = containerWidth * aspectRatio;
+
+                    // Imposta l'altezza del contenitore dell'immagine
+                    bgDiv.style.height = `${calculatedHeight}px`;
+
+                    // Imposta l'altezza massima della colonna laterale
+                    sidebar.style.maxHeight = `${calculatedHeight}px`;
+                };
+                img.src = imageUrl;
+            }
+
+        window.addEventListener('load', setSidebarHeight);
+        window.addEventListener('resize', setSidebarHeight);
+    </script>
 
 </body>
 

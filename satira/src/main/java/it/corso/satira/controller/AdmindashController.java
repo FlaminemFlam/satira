@@ -39,7 +39,7 @@ public class AdmindashController {
         return "admindash";
     }
 
-    @PostMapping("/create-admin")
+    @PostMapping
     public String createAdmin(@Valid @ModelAttribute Admin admin, BindingResult result, Model model) {
         if(result.hasErrors()){
             return "admindash";

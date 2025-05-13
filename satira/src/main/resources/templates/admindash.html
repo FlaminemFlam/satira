@@ -20,7 +20,7 @@
                         <h2>Crea un Admin</h2>
                     </div>
                     <div class="card-body">
-                        <form action="#" th:action="@{/create-admin}" th:object="${admin}" method="post" enctype="multipart/form-data">
+                        <form th:action="@{/admindash}" th:object="${admin}" method="post" enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username:</label>
                                 <input type="text" id="username" th:field="*{username}" class="form-control" required>
@@ -40,6 +40,9 @@
                             <button type="submit" class="btn btn-primary w-100">Crea Admin</button>
                         </form>
                     </div>
+                </div>
+                    <div class="alert alert-success mt-3" th:if="${param.success}">
+                    <p class="text-center">Admin aggiunto con successo!</p>
                 </div>
             </div>
         </div>

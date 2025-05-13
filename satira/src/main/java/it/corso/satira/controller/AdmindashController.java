@@ -39,7 +39,6 @@ public class AdmindashController {
         return "admindash";
     }
 
-    
     @PostMapping("/create-admin")
     public String createAdmin(@Valid @ModelAttribute Admin admin, BindingResult result, Model model) {
         if(result.hasErrors()){
@@ -53,6 +52,7 @@ public class AdmindashController {
         adminService.registrazioneAdmin(admin);
         return "redirect:/admindash?success";
     }
+
 
 }
 

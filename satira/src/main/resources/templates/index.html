@@ -94,9 +94,9 @@
                 <span class="text-muted fs-7" th:text="|Creato da: ${post.admin.username}|"></span>
 
                 <!-- Commenti relativi al post -->
-                <div th:each="commento : ${commenti}" th:if="${commento.post.id == post.id}" class="fs-6">
+                <div th:each="commento : ${commenti}" th:if="${commento.post.id == post.id}">
                     <p th:text="${commento.testo}"></p>
-                </div>
+                </div> -->
             </div>
         </div>
 

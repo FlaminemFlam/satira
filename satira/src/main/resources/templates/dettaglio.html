@@ -40,10 +40,14 @@
             <div class="col-8">
                 <h1 th:text="${post.titolo}"></h1>
                 <p class="fs-4" th:text="${post.contenuto}"></p>
+                <p class="text-end" th:text="|Scritto e interpretato da: ${post.admin.nickname}|"></p>
             </div>
 
+            
+
             <div class="col">
-                <!-- <p class="fs-5" th:text="${commento.testo}"></p> -->
+                <h3>COMMENTI:</h3>
+                 <p class="fs-5" th:text="${commento.testo}"></p> 
             </div>
         </div>
 

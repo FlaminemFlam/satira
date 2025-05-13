@@ -91,3 +91,12 @@ div#carouselExampleCaptions {
 .justify-self-center{
     justify-self: center;
 }
+
+.vh {
+    height: 70vh;
+}
+
+#reqBtn:hover {
+    color: #FF2626;
+    background-color: #0c0c0c;
+}

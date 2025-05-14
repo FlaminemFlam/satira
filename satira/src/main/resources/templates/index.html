@@ -17,7 +17,7 @@
 </head>
 
 <body class="fc-pb">
-    <nav class="navbar navbar-expand-lg fc-fb ">
+    <nav class="navbar navbar-expand-lg fc-fb customNav">
         <div class="container d-flex navImg">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
             <img th:src="@{immagini/memeLogo.png}" alt="logo" style="width: 10%;">
@@ -48,6 +48,35 @@
     </div> -->
 
     <div class="d-flex fc-fb fc-p fs-4 p-2">
+        <nav class="hamburgermenu ">
+            <button class="btn fc-tb py-2" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list "
+                    viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                </svg></button>
+
+            <div class="offcanvas offcanvas-start fc-fb" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header d-flex flex-column">
+                    <img th:src="@{immagini/memeLogo.png}" alt="logo" style="width: 10%;">
+                    <button type="button" class="btn-close fc-sb" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="nav justify-content-end d-flex flex-column">
+
+                        <li class="nav-item">
+                            <a class="nav-link fc-t fs-4" th:href="@{/adminForm} ">Unisciti a noi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fc-t fs-4" th:href="@{/loginAdmin} ">Login</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <div class="notizie-scorrimento">
             <div class="scorrimento-contenuto">
                 La Santa Meme apre le sue porte a tutte le anime: giovani, vecchie e smanettone.
@@ -56,8 +85,10 @@
     </div>
 
 
+
+
     <section class="containerCustom py-5">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center columnCustom">
             <!-- Colonna principale -->
             <div id="colonnaPrincipale" class="col px-3 d-flex flex-column">
                 <div class="riquadroTest mb-3" th:style="'background-image: url(' + ${posts[0].immaginePost} + ');'">
@@ -68,7 +99,7 @@
             </div>
 
             <!-- Colonna laterale -->
-            <div class="col-3 px-4 d-flex flex-column">
+            <div class="col-lg-6 col-xl-3 px-4 d-flex flex-column">
                 <h5 class="mb-3"><strong>FORSE TE PO' NTERESSÀ:</strong></h5>
 
                 <div id="scrollLaterale" class="scroll-laterale">
@@ -100,20 +131,22 @@
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
-                <button th:each="post, iterStat : ${posts}" th:if="${post.immaginePost != null and post.immaginePost != ''}" type="button" data-bs-target="#carouselExampleCaptions"
-                    th:attr="data-bs-slide-to=${iterStat.index + 1}"
+                <button th:each="post, iterStat : ${posts}"
+                    th:if="${post.immaginePost != null and post.immaginePost != ''}" type="button"
+                    data-bs-target="#carouselExampleCaptions" th:attr="data-bs-slide-to=${iterStat.index + 1}"
                     th:attrappend="aria-label='Slide ' + (${iterStat.index + 2})">
                 </button>
             </div>
-            <div class="carousel-inner" >
+            <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img th:src="@{immagini/papa1.png}" class="d-block" alt="..." >
+                    <img th:src="@{immagini/papa1.png}" class="d-block" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Papa lancia linea di profumi: 'Eau de Sacrestia', con note d’incenso e burocrazia'</h5>
                         <p>Dal pulpito alla profumeria: senti che liturgia!</p>
                     </div>
                 </div>
-                <div class="carousel-item" th:if="${post.immaginePost != null and post.immaginePost != ''}" th:each="post : ${posts}" >
+                <div class="carousel-item" th:if="${post.immaginePost != null and post.immaginePost != ''}"
+                    th:each="post : ${posts}">
                     <img th:src="${post.immaginePost}" class="d-block" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h1 th:text="${post.titolo}" class="fc-s bordo fs-1">Second slide label</h1>

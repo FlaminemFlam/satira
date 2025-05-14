@@ -1,6 +1,7 @@
 package it.corso.satira.controller;
 
-import java.util.UUID;
+
+import java.util.Base64;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,16 +17,12 @@ import it.corso.satira.service.EmailService;
 @Controller
 @RequestMapping("/adminForm")
 public class FormAdminController {
-
+    
     @Autowired
     private EmailService emailService;
-
-    //Creo un token univoco per l'invio mail grazie alla classe UUID di java.util
-    String token = UUID.randomUUID().toString(); 
-
-
-
-        // Mostra il form precompilato
+    
+    
+    // Mostra il form precompilato
     @GetMapping
     public String showAdminRequestForm(Model model) {
         BecomeAdmin form = new BecomeAdmin();
@@ -37,13 +34,19 @@ public class FormAdminController {
     // Gestisce l'invio del form
     @PostMapping
     public String processAdminRequest(@ModelAttribute("BecomeAdmin") BecomeAdmin form) {
-        // Costruisci il contenuto dell'email, sostituendo i placeholder con i valori del form
+        // Uso percentuale (%) per splittare i dati da inviare
+        String dati = form.getNome() + "%" + form.getCognome() + "%" + form.getEmail();
+
+        // Codifico i dati in Base64
+        String token = Base64.getEncoder().encodeToString(dati.getBytes()); 
+        
+        // Costruisco il contenuto dell'email
         String confirmationLink = "http://localhost:8080/admindash/creaAdmin?token=" + token;
         String emailBody = "Salve mi chiamo " + form.getCognome() + " " + form.getNome() + ",\n\n" +
-        "Richiedo di avere accesso come admin, clicca sul seguente link:\n" +
+        "Richiedo di avere accesso come Admin, clicca sul seguente link:\n" +
         confirmationLink + "\n\n" +
         "Cordiali Saluti, " + form.getNome() + " " + form.getCognome() + "\n" ;
-        emailService.sendMail("vaticane777@gmail.com", "Conferma Admin", emailBody);
+        emailService.sendMail("gia.minisi@gmail.com", "Crea Admin", emailBody);
         
         return "redirect:/adminForm?success";
     }

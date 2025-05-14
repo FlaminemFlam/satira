@@ -100,20 +100,20 @@
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
-                <button th:each="post, iterStat : ${posts}" type="button" data-bs-target="#carouselExampleCaptions"
+                <button th:each="post, iterStat : ${posts}" th:if="${post.immaginePost != null and post.immaginePost != ''}" type="button" data-bs-target="#carouselExampleCaptions"
                     th:attr="data-bs-slide-to=${iterStat.index + 1}"
                     th:attrappend="aria-label='Slide ' + (${iterStat.index + 2})">
                 </button>
             </div>
-            <div class="carousel-inner">
+            <div class="carousel-inner" >
                 <div class="carousel-item active">
-                    <img th:src="@{immagini/papa1.png}" class="d-block" alt="...">
+                    <img th:src="@{immagini/papa1.png}" class="d-block" alt="..." >
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Papa lancia linea di profumi: 'Eau de Sacrestia', con note d’incenso e burocrazia'</h5>
                         <p>Dal pulpito alla profumeria: senti che liturgia!</p>
                     </div>
                 </div>
-                <div class="carousel-item" th:each="post : ${posts}">
+                <div class="carousel-item" th:if="${post.immaginePost != null and post.immaginePost != ''}" th:each="post : ${posts}" >
                     <img th:src="${post.immaginePost}" class="d-block" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h1 th:text="${post.titolo}" class="fc-s bordo fs-1">Second slide label</h1>

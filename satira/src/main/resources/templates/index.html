@@ -95,51 +95,52 @@
         <!-- http://localhost:8080/dettaglio?id=5 http://localhost:8080/dettaglio?id=1 -->
         <hr>
 
-        <div id="carouselExampleCaptions" class="carousel slide py-5">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button th:each="post, iterStat : ${posts}" th:if="${post.immaginePost != null}" type="button"
-                    data-bs-target="#carouselExampleCaptions" th:attr="data-bs-slide-to=${iterStat.count}"
-                    th:attrappend="aria-label='Slide ' + (${iterStat.count + 1})">
-                </button>
+   <div id="carouselExampleCaptions" class="carousel slide py-5">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button th:each="post, iterStat : ${posts}" th:if="${post.immaginePost != null}" 
+            type="button" data-bs-target="#carouselExampleCaptions"
+            th:attr="data-bs-slide-to=${iterStat.count}" 
+            th:attrappend="aria-label='Slide ' + (${iterStat.count + 1})">
+        </button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img th:src="@{immagini/papa1.png}" class="d-block" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Papa lancia linea di profumi: 'Eau de Sacrestia', con note d'incenso e burocrazia'</h5>
+                <p>Dal pulpito alla profumeria: senti che liturgia!</p>
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img th:src="@{immagini/papa1.png}" class="d-block" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Papa lancia linea di profumi: 'Eau de Sacrestia', con note d'incenso e burocrazia'</h5>
-                        <p>Dal pulpito alla profumeria: senti che liturgia!</p>
-                    </div>
-                </div>
-                <div class="carousel-item" th:each="post : ${posts}" th:if="${post.immaginePost != null}">
-                    <img th:src="${post.immaginePost}" class="d-block" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1 th:text="${post.titolo}" class="fc-s bordo fs-1">Second slide label</h1>
-                        <h5 th:text="${post.contenuto}" class="bordo fs-2">Some representative placeholder content for
-                            the second slide.</h5>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-caret-left-fill" viewBox="0 0 16 16">
-                    <path
-                        d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
-                </svg>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                    <path
-                        d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                </svg>
-                <span class="visually-hidden">Next</span>
-            </button>
         </div>
+        <div class="carousel-item" th:each="post : ${posts}" th:if="${post.immaginePost != null}">
+            <img th:src="${post.immaginePost}" class="d-block" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h1 th:text="${post.titolo}" class="fc-s bordo fs-1">Second slide label</h1>
+                <h5 th:text="${post.contenuto}" class="bordo fs-2">Some representative placeholder content for
+                    the second slide.</h5>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+            <path
+                d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+        </svg>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+            <path
+                d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+        </svg>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
     </div>
 
     <footer class="fc-fb text-center text-white mt-5">
@@ -148,13 +149,9 @@
 
             <section class="">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase">Navigazione</h5>
-                        <div><a href="#" class="text-white text-decoration-none">Contattaci</a></div>
-                    </div>
 
 
-                    <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                    <div class="col col-md-12 mb-4 mb-md-0">
                         <h5 class="text-uppercase">La Santa Meme</h5>
                         <p>
                             L'ennesimo portale italiano dedicato ai meme religiosi, dove la fede incontra l'ironia

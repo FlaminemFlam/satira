@@ -82,8 +82,6 @@ public String gestioneForm(HttpSession session,@RequestParam String titolo,@Requ
     return "redirect:/admindash";
 }
 
-    
-    
     @GetMapping("/creaAdmin")
     public String renderPagina(HttpSession session, Model model, @RequestParam(required = false) String esito) {
         if (session.getAttribute("admin") == null) {

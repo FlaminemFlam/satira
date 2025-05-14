@@ -28,11 +28,12 @@
             <ul class="nav justify-content-end">
 
                 <li class="nav-item">
-                    <a th:text="|Logout ${admin.username}" th:href="@{/admindash/logout}" class="nav-link fc-t -fs-4"></a>
+                    <a th:text="|Logout ${admin.username}" th:href="@{/admindash/logout}"
+                        class="nav-link fc-t -fs-4"></a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link fc-t fs-4" th:href="@{/admindash/creaAdmin}" >Crea Admin</a>
+                    <a class="nav-link fc-t fs-4" th:href="@{/admindash/creaAdmin}">Crea Admin</a>
                 </li>
 
             </ul>
@@ -43,7 +44,7 @@
 
         <!-- SEZIONE POST -->
 
-    <div class="row justify-content-center mt-4">
+        <div class="row justify-content-center mt-4">
             <div class="col-10">
                 <h4 class="text-center">Post</h4>
                 <h5 th:if="${esito != null}" class="text-center text-danger" th:text="${esito}"></h5>
@@ -82,12 +83,12 @@
                         class="form-control mt-3" required>
                     <input name="dataPubblicazione" th:value="${post.dataPubblicazione}" type="datetime-local"
                         placeholder="Data pubblicazione" class="form-control mt-3" required>
-                        <div class="form-check mt-3">
-                            <input type="hidden" name="visible" value="0">
-                            <input type="checkbox" class="form-check-input" name="visible" id="visible" value="1"
+                    <div class="form-check mt-3">
+                        <input type="hidden" name="visible" value="0">
+                        <input type="checkbox" class="form-check-input" name="visible" id="visible" value="1"
                             th:checked="${post.visible == 1}">
-                            <label class="form-check-label" for="visible">Visibile</label>
-                        </div>
+                        <label class="form-check-label" for="visible">Visibile</label>
+                    </div>
                     <input type="file" name="immaginePost" class="form-control mt-3">
                     <div class="mt-4 text-center">
                         <input type="submit" value="Invio Dati" class="btn btn-success">
@@ -142,7 +143,18 @@
         </div>
 
     </footer>
-
+    <script>
+        document.querySelectorAll(".elimina").forEach(function (button) {
+            button.addEventListener("click", function () {
+                const valoriRicevuti = this.getAttribute("value");
+                const datiRicevuti = valoriRicevuti.split("@");
+                const conferma = confirm("Sei sicuro di voler cancellare " + datiRicevuti[0] + "?");
+                if (conferma) {
+                    window.location.href = "/admindash/elimina?id=" + datiRicevuti[1];
+                }
+            })
+        })
+    </script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

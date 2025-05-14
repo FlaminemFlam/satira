@@ -56,10 +56,10 @@
     </div>
 
 
-    <section class="container py-5">
+    <section class="containerCustom py-5">
         <div class="row justify-content-center">
             <!-- Colonna principale -->
-            <div id="colonnaPrincipale" class="col-9 px-3 d-flex flex-column">
+            <div id="colonnaPrincipale" class="col px-3 d-flex flex-column">
                 <div class="riquadroTest mb-3" th:style="'background-image: url(' + ${posts[0].immaginePost} + ');'">
                 </div>
 
@@ -68,24 +68,20 @@
             </div>
 
             <!-- Colonna laterale -->
-            <div class="col-3 px-3 d-flex flex-column">
+            <div class="col-3 px-4 d-flex flex-column">
                 <h5 class="mb-3"><strong>FORSE TE PO' NTERESSÀ:</strong></h5>
 
                 <div id="scrollLaterale" class="scroll-laterale">
                     <ul class="lista-croci">
                         <li th:each="post : ${posts}" class="mb-2">
                             <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}"
-                                class="text-decoration-none fc-t fs-6"></a>
+                                class="text-decoration-none fc-t customFont"></a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-
-
-
-
 
     <hr>
     <div class="ticker-wrapper" onmouseenter="pauseTicker()" onmouseleave="resumeTicker()">
@@ -99,11 +95,7 @@
     </div>
     <!-- http://localhost:8080/dettaglio?id=5 http://localhost:8080/dettaglio?id=1 -->
     <hr>
-
-
-
-
-    <section class="container py-5">
+    <section class="containerCustom py-5">
         <div id="carouselExampleCaptions" class="carousel slide py-5">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"

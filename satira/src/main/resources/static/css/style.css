@@ -10,8 +10,17 @@ body{
     font-optical-sizing: auto;
     font-weight: weight;
     font-style: normal;
+    font-size: large;
 }
 
+.containerCustom{
+    width: 70%;
+    margin: auto;
+}
+
+.customFont{
+    font-size: 20px;
+}
 
 .fc-p {
     color: var(--main-color);
@@ -419,6 +428,17 @@ div#carouselExampleCaptions {
   100% {
     background-position: 0 0;
   }
+}
+
+@media (min-width: 2559px) {
+
+    body {
+        font-size: xx-large ;
+    }
+
+    .customFont{
+    font-size: 25px;
+}
 }
 
 

@@ -31,15 +31,30 @@ public class DettaglioController {
 
     @GetMapping
     public String renderPage(@RequestParam(defaultValue = "0") Integer id, Model model) {
+        // Prima recupera il post
         Post post = postService.datiPost(id);
-        List<Commento> commenti = commentiService.elencoCommenti();
-        Admin admin = id == null ? new Admin() : adminService.datiAdmin(id);
+
+        // Verifica se il post è nullo prima di procedere
         if (post == null) {
             return "redirect:/";
         }
+
+        // Ora recupera l'admin usando l'ID dell'admin associato al post
+        Admin admin = null;
+        if (post.getAdmin() != null) {
+            admin = adminService.datiAdmin(post.getAdmin().getId());
+        } else {
+            admin = new Admin(); // Admin vuoto se il post non ha un admin associato
+        }
+
+        // Recupera i commenti
+        List<Commento> commenti = commentiService.elencoCommenti();
+
+        // Aggiungi gli attributi al modello
         model.addAttribute("post", post);
         model.addAttribute("commenti", commenti);
         model.addAttribute("admin", admin);
+
         return "dettaglio";
     }
 }

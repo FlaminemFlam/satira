@@ -26,25 +26,25 @@ import jakarta.validation.Valid;
 @Controller
 @RequestMapping("/admindash")
 public class AdmindashController {
-
+    
     @Autowired
     private PostService postService;
     @Autowired
     private AdminService adminService;
-
+    
     private Post post;
-
+    
     private Map<String, String> errori;
-
+    
     @GetMapping
     public String renderPage(HttpSession session, Model model, @RequestParam(required = false) Integer id, @RequestParam(required = false) String esito) {
         if (session.getAttribute("admin") == null) {
             return "redirect:/loginAdmin";
         }
-
+        
         if(errori == null)
         post = id == null ? new Post() : postService.datiPost(id);
-
+        
         List<Post> posts = postService.elencoPost();
         Admin adminSessione = (Admin) session.getAttribute("admin");
         Admin admin = adminService.datiAdmin(adminSessione.getId());
@@ -55,24 +55,38 @@ public class AdmindashController {
         model.addAttribute("errori", errori);
         return "admindash";
     }
-
-    @SuppressWarnings("unchecked")
-    @PostMapping
-    public String gestioneForm(@RequestParam String titolo, @RequestParam String contenuto, @RequestParam LocalDateTime dataPubblicazione, @RequestParam Integer idAdmin, @RequestParam Integer idCommento, @RequestParam(required = false) MultipartFile immaginePost, @RequestParam Integer visible) {
-        Object[] esitoValidazione = postService.validazionePost(post, titolo, contenuto, dataPubblicazione, idAdmin,
-                visible, idCommento);
-        if (esitoValidazione != null) {
-            post = (Post) esitoValidazione[0];
-            errori = (Map<String, String>) esitoValidazione[1];
-            return "redirect:/admindash";
-        }
-
-        postService.creazionePost(post, immaginePost, titolo, contenuto, dataPubblicazione, idCommento, idAdmin);
-        post = null;
-        errori = null;
+    
+@SuppressWarnings("unchecked")
+@PostMapping
+public String gestioneForm(HttpSession session,@RequestParam String titolo,@RequestParam String contenuto,@RequestParam LocalDateTime dataPubblicazione,@RequestParam(required = false) Integer idCommento,@RequestParam(required = false) MultipartFile immaginePost,@RequestParam Integer visible) {  
+    
+    // Recupero l'oggetto Admin dalla sessione
+    Admin adminSession = (Admin) session.getAttribute("admin");
+    if (adminSession == null) {
+        return "redirect:/loginAdmin";
+    }
+    
+    // Imposto la visibilità di default a 0 (non visibile)
+    visible = 0;
+    
+    // Validazione dati del post (assicurati che validazionePost accetti un oggetto Admin se necessario)
+    Object[] esitoValidazione = postService.validazionePost(post, titolo, contenuto, dataPubblicazione, visible, adminSession);
+    if (esitoValidazione != null) {
+        post = (Post) esitoValidazione[0];
+        errori = (Map<String, String>) esitoValidazione[1];
         return "redirect:/admindash";
     }
+    
+    // Creazione del nuovo post: passo direttamente l'oggetto Admin della sessione
+    postService.creazionePost(post, immaginePost, titolo, contenuto, dataPubblicazione, adminSession, visible);
+    
+    post = null;
+    errori = null;
+    return "redirect:/admindash";
+}
 
+    
+    
     @GetMapping("/creaAdmin")
     public String renderPagina(HttpSession session, Model model, @RequestParam(required = false) String esito) {
         if (session.getAttribute("admin") == null) {
@@ -84,10 +98,10 @@ public class AdmindashController {
         model.addAttribute("esito", esito);
         return "creaAdmin";
     }
-
+    
     @PostMapping("/creaAdmin")
     public String createAdmin(HttpSession session, @Valid @ModelAttribute Admin admin, BindingResult result,
-            Model model) {
+    Model model) {
         if (session.getAttribute("admin") == null) {
             return "redirect:/loginAdmin";
         }
@@ -102,5 +116,14 @@ public class AdmindashController {
         adminService.registrazioneAdmin(admin);
         return "redirect:/admindash/creaAdmin?success";
     }
-
+    
+    
+    @GetMapping("/logout")
+    public String logoutAdmin(HttpSession session){
+        session.removeAttribute(("admin"));
+        return "redirect:/";
+    }
+    
+    
+    
 }

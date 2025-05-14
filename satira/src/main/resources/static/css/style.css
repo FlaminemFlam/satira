@@ -202,7 +202,7 @@ div#carouselExampleCaptions {
 }
 
 .ticker-link {
-    color: #BD1616;
+   color:var(--four-color);
     text-decoration: none;
     font-weight: bold;
 }

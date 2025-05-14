@@ -21,7 +21,8 @@
         <div class="container d-flex navImg">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
             <img th:src="@{immagini/memeLogo.png}" alt="logo" style="width: 10%;">
-            <div class="p-0 fs-1"><strong  class="fc-t"><a th:href="@{/} " class="text-decoration-none fc-t">LA SANTA MEME</a></strong></div>
+            <div class="p-0 fs-1"><strong class="fc-t"><a th:href="@{/} " class="text-decoration-none fc-t">LA SANTA
+                        MEME</a></strong></div>
 
             <ul class="nav justify-content-end">
 
@@ -35,7 +36,7 @@
             </ul>
         </div>
     </nav>
-<!-- 
+    <!-- 
     <div class="d-flex fc-fb fc-p tipo-display py-2 fs-5">
         <a href="#" class="text-white text-decoration-none">Home</a>
         <a href="#" class="text-white text-decoration-none">Papa</a>
@@ -53,23 +54,24 @@
             </div>
         </div>
     </div>
-    
+
     <div class="container py-5">
 
 
         <div class="row justify-content-center">
             <!-- Colonna principale -->
             <div id="colonnaPrincipale" class="col-9 px-3 d-flex flex-column">
-                <div class="riquadroTest mb-3" th:style="'background-image: url(' + ${posts[0].immaginePost} + ');'"></div>
-        
+                <div class="riquadroTest mb-3" th:style="'background-image: url(' + ${posts[0].immaginePost} + ');'">
+                </div>
+
                 <h3 class="mt-2"><strong th:text="${posts[0].titolo}"></strong></h3>
                 <p th:text="${posts[0].contenuto}"></p>
             </div>
-        
+
             <!-- Colonna laterale -->
             <div class="col-3 px-3 d-flex flex-column">
                 <h5 class="mb-3"><strong>FORSE TE PO' NTERESSÀ:</strong></h5>
-        
+
                 <div id="scrollLaterale" class="scroll-laterale">
                     <ul class="lista-croci">
                         <li th:each="post : ${posts}" class="mb-2">
@@ -92,51 +94,52 @@
         </div>
         <hr>
 
-        <div id="carouselExampleCaptions" class="carousel slide py-5">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
+   <div id="carouselExampleCaptions" class="carousel slide py-5">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button th:each="post, iterStat : ${posts}" th:if="${post.immaginePost != null}" 
+            type="button" data-bs-target="#carouselExampleCaptions"
+            th:attr="data-bs-slide-to=${iterStat.count}" 
+            th:attrappend="aria-label='Slide ' + (${iterStat.count + 1})">
+        </button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img th:src="@{immagini/papa1.png}" class="d-block" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Papa lancia linea di profumi: 'Eau de Sacrestia', con note d'incenso e burocrazia'</h5>
+                <p>Dal pulpito alla profumeria: senti che liturgia!</p>
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img th:src="@{immagini/papa1.png}" class="d-block" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Papa lancia linea di profumi: 'Eau de Sacrestia', con note d’incenso e burocrazia'</h5>
-                        <p>Dal pulpito alla profumeria: senti che liturgia!</p>
-                    </div>
-                </div>
-                <div class="carousel-item" th:each="post : ${posts}">
-                    <img th:src="${post.immaginePost}" class="d-block" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1 th:text="${post.titolo}" class="fc-s bordo fs-1">Second slide label</h1>
-                        <h5 th:text="${post.contenuto}" class=" bordo fs-2">Some representative placeholder content for the
-                            second slide.</h5>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="prev">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-caret-left-fill" viewBox="0 0 16 16">
-                    <path
-                        d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
-                </svg>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                data-bs-slide="next">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-caret-right-fill" viewBox="0 0 16 16">
-                    <path
-                        d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                </svg>
-                <span class="visually-hidden">Next</span>
-            </button>
         </div>
+        <div class="carousel-item" th:each="post : ${posts}" th:if="${post.immaginePost != null}">
+            <img th:src="${post.immaginePost}" class="d-block" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h1 th:text="${post.titolo}" class="fc-s bordo fs-1">Second slide label</h1>
+                <h5 th:text="${post.contenuto}" class="bordo fs-2">Some representative placeholder content for
+                    the second slide.</h5>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+            <path
+                d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+        </svg>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+            <path
+                d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+        </svg>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
     </div>
 
     <footer class="fc-fb text-center text-white mt-5">
@@ -172,29 +175,29 @@
 
     <script>
         function setSidebarHeight() {
-                const mainCol = document.getElementById('colonnaPrincipale');
-                const sidebar = document.getElementById('scrollLaterale');
-                const bgDiv = mainCol.querySelector('.riquadroTest');
+            const mainCol = document.getElementById('colonnaPrincipale');
+            const sidebar = document.getElementById('scrollLaterale');
+            const bgDiv = mainCol.querySelector('.riquadroTest');
 
-                // Estrai l'URL dell'immagine di sfondo
-                const bgImage = window.getComputedStyle(bgDiv).backgroundImage;
-                const imageUrl = bgImage.slice(5, -2); // Rimuove 'url("...")'
+            // Estrai l'URL dell'immagine di sfondo
+            const bgImage = window.getComputedStyle(bgDiv).backgroundImage;
+            const imageUrl = bgImage.slice(5, -2); // Rimuove 'url("...")'
 
-                const img = new Image();
-                img.onload = function () {
-                    // Calcola l'altezza dell'immagine in base alla larghezza del contenitore
-                    const containerWidth = bgDiv.offsetWidth;
-                    const aspectRatio = img.height / img.width;
-                    const calculatedHeight = containerWidth * aspectRatio;
+            const img = new Image();
+            img.onload = function () {
+                // Calcola l'altezza dell'immagine in base alla larghezza del contenitore
+                const containerWidth = bgDiv.offsetWidth;
+                const aspectRatio = img.height / img.width;
+                const calculatedHeight = containerWidth * aspectRatio;
 
-                    // Imposta l'altezza del contenitore dell'immagine
-                    bgDiv.style.height = `${calculatedHeight}px`;
+                // Imposta l'altezza del contenitore dell'immagine
+                bgDiv.style.height = `${calculatedHeight}px`;
 
-                    // Imposta l'altezza massima della colonna laterale
-                    sidebar.style.maxHeight = `${calculatedHeight}px`;
-                };
-                img.src = imageUrl;
-            }
+                // Imposta l'altezza massima della colonna laterale
+                sidebar.style.maxHeight = `${calculatedHeight}px`;
+            };
+            img.src = imageUrl;
+        }
 
         window.addEventListener('load', setSidebarHeight);
         window.addEventListener('resize', setSidebarHeight);

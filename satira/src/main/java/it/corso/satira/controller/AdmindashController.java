@@ -66,9 +66,6 @@ public String gestioneForm(HttpSession session,@RequestParam String titolo,@Requ
         return "redirect:/loginAdmin";
     }
     
-    // Imposto la visibilità di default a 0 (non visibile)
-    visible = 0;
-    
     // Validazione dati del post (assicurati che validazionePost accetti un oggetto Admin se necessario)
     Object[] esitoValidazione = postService.validazionePost(post, titolo, contenuto, dataPubblicazione, visible, adminSession);
     if (esitoValidazione != null) {

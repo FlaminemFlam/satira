@@ -72,10 +72,10 @@ body {
 .bordo {
     -webkit-text-stroke: 1px black;
 }
-
+/* 
 a:hover {
     color:var(--second-color)  !important;
-}
+} */
 
 img {
     width: 700px;
@@ -924,6 +924,8 @@ img {
 }
 }
 
+
+/* Admindash */
 
 
 

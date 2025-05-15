@@ -542,7 +542,7 @@ div#carouselExampleCaptions {
         justify-self: center;
     }
 }
-*LOGIN*/
+/* *LOGIN*/ 
 .login-container {
   display: flex;
   align-items: center;

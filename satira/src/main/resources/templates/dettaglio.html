@@ -36,8 +36,10 @@
             </ul>
         </div>
     </nav>
-    
-        <section class="blog-posts grid-system">
+
+
+      <!--POST-->
+      <section class="blog-posts grid-system">
       <div class="container">
         <div class="row">
           <div class="col-lg-8">
@@ -49,10 +51,10 @@
                       <img th:src="${post.immaginePost}" alt="img">
                     </div>
                     <div class="down-content">
-                        <h3 th:text="${post.titolo}"></h3>
+                        <h2 th:text="${post.titolo}"></h2>
                       <ul class="post-info">
                         <li><a th:text="|Scritto e interpretato da: ${post.admin.nickname}|"></a></li>
-                        <li><a th:text="${#temporals.format(post.dataPubblicazione, 'dd-MM-yyyy  HH:mm')}"></a></li>
+                        <li><a th:text="|(${#temporals.format(post.dataPubblicazione, 'dd-MM-yyyy  HH:mm')})|"></a></li>
                       </ul>
                       <p th:text="${post.contenuto}"></p>
                       <div class="post-options">
@@ -67,18 +69,21 @@
                     </div>
                   </div>
                 </div>
+
+                <!--LISTA COMMENTI-->
                 <div class="col-lg-12">
                   <div class="sidebar-item comments">
                     <div class="sidebar-heading">
-                      <h2>Commenti</h2>
+                      <h2>COMMENTI</h2>
                     </div>
                     <div class="content">
+                      <ul>
                         <li th:each="commento : ${commenti}" th:if="${commento.post.id == post.id}">
                           <div class="author-thumb">
                           </div>
                           <div class="right-content">
                             <h4><span th:if="${commento.post.id == post.id}" th:text="${#temporals.format(commento.dataCommento, 'dd-MM-yyyy | HH:mm')}"></span></h4>
-                            <p th:text="${commento.testo}"></p>
+                            <h5 th:text="${commento.testo}"></h5>
                           </div>
                         </li>
                         
@@ -87,15 +92,16 @@
                   </div>
                 </div>
 
+                <!--INSERISCI COMMENTO-->
                 <div class="col-lg-12">
                   <div class="sidebar-item submit-comment">
                     <div class="sidebar-heading">
-                      <h2>Commenta</h2>
+                      <h2>COMMENTA</h2>
                     </div>
                     <div class="content">
                       <form id="comment" action="/aggiungicommento" method="post">
                         <div class="row">
-                          <div class="col-md-6 col-sm-12">
+                          <div class="col-md-6 col-sm-12 form">
                             <fieldset>
                               <input name="name" type="text" id="name" placeholder="Il tuo nome" required="">
                             </fieldset>
@@ -123,9 +129,15 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
+          
+          <div class="col-lg-4 col-xl-4 px-4 d-flex flex-column">
             <div class="sidebar">
-              <div class="row">
+                <div class="col-lg-12"> 
+                    <div class="container">
+                      <img src="/immagini/BellsproutGarden.jpg" alt="img">
+                    </div>
+                </div>
+
                 <div class="col-lg-12">
                   <div class="sidebar-item search">
                     <form id="search_form" name="gs" method="GET" action="#">
@@ -133,45 +145,24 @@
                     </form>
                   </div>
                 </div>
-                <div class="col-3 px-4 d-flex flex-column">
-                  <div class="sidebar-item recent-posts">
-                    <div class="sidebar-heading">
-                      <h2>Newz</h2>
-                    </div>
-                    <div>
-                      <ul>
-                        <li th:each="post : ${posts}">
-                            <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}"
-                                class="text-decoration-none fc-t customFont"></a>
-                        </li>
-                    </ul>
-                    </div>
-                  </div>
+
+               <div class="col-lg-12">
+                <div class="sidebar-item recent-posts">
+                  <div class="sidebar-heading">
+                <h2>Novità:</h2>
                 </div>
-                <div class="col-lg-12">
-                  <div class="sidebar-item categories">
-                    <div class="sidebar-heading">
-                      <h2>New</h2>
-                    </div>
-                    <div class="content">
-                      <ul>
-                        <li><a href="#">- Nature Lifestyle</a></li>
-                        <li><a href="#">- Awesome Layouts</a></li>
-                        <li><a href="#">- Creative Ideas</a></li>
-                        <li><a href="#">- Responsive Templates</a></li>
-                        <li><a href="#">- HTML5 / CSS3 Templates</a></li>
-                        <li><a href="#">- Creative &amp; Unique</a></li>
+                <div class="content">
+                      <ul class="lista-croci">
+                          <li th:each="post:${posts}" class="mb-2 recenti">
+                              <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}" class="text-decoration-none fc-t customFont">
+                              </a>
+                          </li>
                       </ul>
-                    </div>
+                      </div>
                   </div>
                 </div>
-                <div class="col-lg-12">
-                  <div class="sidebar-item tags">
-                    </div>
-                    <div class="container">
-                      <img src="/immagini/BellsproutGarden.jpg" alt="img">
-                    </div>
-                  </div>
+            </div>
+            </div>
                 </div>
               </div>
             </div>

@@ -49,12 +49,14 @@ public class DettaglioController {
 
         // Recupera i commenti
         List<Commento> commenti = commentiService.elencoCommenti();
+        List<Post> posts = postService.elencoPost();
 
         // Aggiungi gli attributi al modello
         model.addAttribute("post", post);
         model.addAttribute("commenti", commenti);
         model.addAttribute("admin", admin);
-
+        model.addAttribute("posts", posts);
+        
         return "dettaglio";
     }
 }

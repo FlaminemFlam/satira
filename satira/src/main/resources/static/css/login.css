@@ -1,13 +1,23 @@
 @import "style.css";
 
+html, body { 
+  min-height: 100vh; 
+  margin: 0;
+  padding: 0;}
 
-
-
-
-html, body {
-    min-height: 100%;
+.content{
+  flex: 1; 
 }
 
+footer {
+  margin-top: auto;
+  flex:0;}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 
 .login-container {
@@ -85,10 +95,7 @@ html, body {
 @media (max-width: 2559px) {
 
     body {
-        font-size: x-large;
+        font-size: large;
     }
-
-
-
 }
 

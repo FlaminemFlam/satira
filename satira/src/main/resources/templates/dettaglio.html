@@ -211,8 +211,9 @@
   
   async function getGif() {
     const query = document.getElementById('search').value;
+    const key = AIzaSyBtXEYbMqI50onTvcfn64bxHGYjtwbH6VA;
     const url = 'https://tenor.googleapis.com/v2/search?q=' + query +
-    '&key=AIzaSyBtXEYbMqI50onTvcfn64bxHGYjtwbH6VA&limit=10';
+    '&key='+ key +'&limit=10';
     
     try {
       const response = await fetch(url);

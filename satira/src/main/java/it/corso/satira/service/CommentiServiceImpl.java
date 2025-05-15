@@ -35,4 +35,9 @@ public class CommentiServiceImpl implements CommentiService {
         return null;
     }
 
+    @Override
+    public void registraCommento(Commento commento) {
+        commentoRepository.save(commento);
+    }
+
 }

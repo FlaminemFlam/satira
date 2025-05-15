@@ -9,4 +9,5 @@ public interface CommentiService {
 
     Commento datiCommento(Integer id);
     String eliminazioneCommento(Integer id);
+    void registraCommento(Commento commento);
 }

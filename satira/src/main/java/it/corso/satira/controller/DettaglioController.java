@@ -56,6 +56,7 @@ public class DettaglioController {
         model.addAttribute("commenti", commenti);
         model.addAttribute("admin", admin);
         model.addAttribute("posts", posts);
+        model.addAttribute("nuovoCommento", new Commento());
         
         return "dettaglio";
     }

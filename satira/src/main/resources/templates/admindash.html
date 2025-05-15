@@ -46,22 +46,22 @@
 
         <div class="row justify-content-center mt-4">
             <div class="col-10">
-                <h4 class="text-center">Post</h4>
+                <h1 class="text-center"><strong>Post</strong></h1>
                 <h5 th:if="${esito != null}" class="text-center text-danger" th:text="${esito}"></h5>
                 <table class="table table-striped">
                     <tr th:each="post : ${posts}">
                         <td class="text-center">
                             <img th:src="${post.immaginePost == null ? 'immagini/no_img.png' : post.immaginePost}"
-                                alt="copertina post" style="max-height: 70px;">
+                                alt="copertina post" style="max-width: 80%; max-height: 100px;">
                         </td>
-                        <td class="align-middle" th:text="${post.titolo}"></td>
-                        <td class="align-middle" th:text="${post.contenuto}"></td>
-                        <td class="align-middle" th:text="|${post.admin.nickname}|"></td>
-                        <td class="align-middle text-end">
-                            <a th:href="@{/admindash(id=${post.id})}"
-                                class="btn btn-sm btn-outline-primary me-2">Modifica</a>
-                            <button class="btn btn-sm btn-outline-danger elimina"
-                                th:value="|${post.titolo}@${post.id}|">Elimina</button>
+                        <td class="align-middle p-1 m-1" th:text="${post.titolo}" style="max-width: 200px;"></td>
+                        <td class="align-middle p-1 m-1 fs-6" th:text="${post.contenuto}"></td>
+                        <td class="align-middle p-1 m-1 fs-6" th:text="|${post.admin.nickname}|"></td>
+                        <td class="align-middle text-end p-2">
+                            <a th:href="@{/admindash(id=${post.id})}" class="btn btn-outline-primary btn-sm">Modifica</a>
+                        </td>
+                        <td class="align-middle text-end p-2">
+                            <button class="btn btn-sm btn-outline-danger elimina" th:value="|${post.titolo}@${post.id}|">Elimina</button>
                         </td>
                     </tr>
                 </table>
@@ -72,8 +72,44 @@
         <!-- FORM DI REGISTRAZIONE/MODIFICA POST -->
         <hr>
         <div class="row justify-content-center mt-4">
+            <h4 class="text-center">Aggiunta/Modifica Post</h4>
+            <div class="row">
+                <div class="col-6">
+                    <input name="dataPubblicazione" th:value="${post.dataPubblicazione}" type="datetime-local" placeholder="Data pubblicazione" class="form-control mt-3" required>
+                </div>
+                <div class="col-6">
+                    <input type="text" name="titolo" th:value="${post.titolo}" placeholder="Titolo" class="form-control mt-3" required>
+                    <small th:if="${errori != null && errori.containsKey('titolo')}" th:text="${errori.get('titolo')}"
+                        class="text-danger"></small>
+                </div>
+            </div>
+            <div class="row">
+                <input type="text-area" name="contenuto" th:value="${post.contenuto}" placeholder="Contenuto" class="form-control mt-3 mx-2"
+                    required>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <input type="file" name="immaginePost" class="form-control mt-3">
+                </div>
+                <div class="col-6 align-right">
+                    <div class="form-check mt-3">
+                        <input type="hidden" name="visible" value="0">
+                        <input type="checkbox" class="form-check-input " name="visible" id="visible" value="1"
+                            th:checked="${post.visible == 1}">
+                        <label class="form-check-label" for="visible">Visibile</label>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 text-center">
+                <input type="submit" value="Invio Dati" class="btn btn-success">
+            </div>
+        </div>
+        
+        <hr>
+
+        <div class="row justify-content-center mt-4">
             <div class="col-lg-4 border p-4">
-                <h4 class="text-center">Registrazione/Modifica Post</h4>
+                <h4 class="text-center">Aggiunta/Modifica Post</h4>
                 <form action="/admindash" method="post" enctype="multipart/form-data">
                     <input type="text" name="titolo" th:value="${post.titolo}" placeholder="Titolo"
                         class="form-control mt-3" required>
@@ -105,27 +141,7 @@
 
             <section class="">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase">Navigazione</h5>
-                        <ul class="list-unstyled mb-0">
-                            <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Archivio</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Top Meme</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Contattaci</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase">Categorie</h5>
-                        <ul class="list-unstyled mb-0">
-                            <li><a href="#" class="text-white text-decoration-none">Papa</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Vaticano</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Cardinali</a></li>
-                            <li><a href="#" class="text-white text-decoration-none">Altro</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                    <div class="col col-md-12 mb-4 mb-md-0">
                         <h5 class="text-uppercase">La Santa Meme</h5>
                         <p>
                             L'ennesimo portale italiano dedicato ai meme religiosi, dove la fede incontra l'ironia

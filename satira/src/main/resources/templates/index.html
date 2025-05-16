@@ -118,7 +118,7 @@
     <div class="ticker-wrapper" onmouseenter="pauseTicker()" onmouseleave="resumeTicker()">
         <div class="ticker" id="ticker">
             <div class="ticker-item" th:each="post : ${posts}">
-                <a th:href="@{/dettaglio(id=${post.id})}" class="ticker-link fc-f">
+                <a th:href="@{/dettaglio(id=${post.id})}" class="ticker-link fc-fifth">
                     <strong th:text="${post.titolo}">Titolo</strong>
                 </a>
             </div>

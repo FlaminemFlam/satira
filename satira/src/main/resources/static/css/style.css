@@ -1,8 +1,16 @@
-:root {
+/* :root {
     --main-color: #FFE6E6;
     --second-color: #FF2626;
     --third-color: #BD1616;
     --four-color: #0c0c0c;
+} */
+
+:root {
+    --main-color: #191825;
+    --second-color: #865DFF;
+    --third-color: #E384FF;
+    --four-color: #400093;
+    --fifth-color: #FF0B55;
 }
 
 body {
@@ -11,7 +19,21 @@ body {
     font-weight: weight;
     font-style: normal;
     font-size: large;
+    color: #E384FF;
+
+
 }
+
+a,
+h2 {
+    color: var(--second-color) !important;
+}
+
+a:hover {
+    color: var(--fifth-color) !important;
+}
+
+
 
 .hamburgermenu {
     display: none;
@@ -56,6 +78,10 @@ body {
     color: var(--four-color);
 }
 
+.fc-fifth {
+    color: var(--fifth-color) !important;
+}
+
 .fc-tb {
     background-color: var(--third-color);
 }
@@ -72,6 +98,7 @@ body {
 .bordo {
     -webkit-text-stroke: 1px black;
 }
+
 /* 
 a:hover {
     color:var(--second-color)  !important;
@@ -124,7 +151,7 @@ div#carouselExampleCaptions {
 }
 
 #reqBtn:hover {
-    color: #FF2626;
+    color: var(--third-color) !important;
     background-color: #0c0c0c;
 }
 
@@ -158,12 +185,12 @@ div#carouselExampleCaptions {
 }
 
 .scroll-laterale a {
-    color: #BD1616;
+    color: #865DFF;
     text-decoration: none;
 }
 
 .scroll-laterale a:hover {
-    color: #FF2626;
+    color: var(--third-color) !important;
 }
 
 
@@ -228,7 +255,7 @@ div#carouselExampleCaptions {
 }
 
 .ticker-link:hover {
-    color: #FF2626;
+    color: var(--third-color) !important;
 }
 
 /* Animazione base */
@@ -341,27 +368,25 @@ div#carouselExampleCaptions {
 
 
 @keyframes type-gradient {
-  0% {
-    background-position: 300px 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
+    0% {
+        background-position: 300px 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
 }
 
 @media (min-width: 2559px) {
 
     body {
-        font-size: xx-large ;
+        font-size: xx-large;
     }
 
-    .customFont{
-    font-size: 25px;
-}
+    .customFont {
+        font-size: 25px;
+    }
 }
 
 
 /* Admindash */
-
-
-

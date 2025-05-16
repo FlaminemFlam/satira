@@ -2,12 +2,14 @@ package it.corso.satira.service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.corso.satira.model.Admin;
+import it.corso.satira.model.Commento;
 import it.corso.satira.model.Post;
 import it.corso.satira.repository.AdminRepository;
 import jakarta.servlet.http.HttpSession;
@@ -80,28 +82,37 @@ public String aggiuntaPost(Integer idPost, HttpSession session) {
     
 @Override
 public void modificaPost(Integer id, Integer visible, HttpSession session) {
-    // Recupero l'admin dalla sessione
+    
     Admin adminSessione = (Admin) session.getAttribute("admin");
-    if(adminSessione == null) {
+    if (adminSessione == null) {
         return;
     }
 
     Admin admin = adminRepository.findById(adminSessione.getId()).orElse(null);
-    if(admin == null) {
+    if (admin == null) {
         return;
     }
-
-    // Itero sui post dell'admin per trovare quello da modificare
+    
     for (Post post : admin.getPost()) {
         if (post.getId().equals(id)) {
+            
+            List<Commento> commentiEsistenti = post.getCommento();
+            
+            if (commentiEsistenti == null) {
+                commentiEsistenti = new ArrayList<>();
+                post.setCommento(commentiEsistenti);
+            }
+            
             post.setDataPubblicazione(LocalDateTime.now());
-            post.setVisible(visible);  
+            post.setVisible(visible);
             post.setAdmin(admin);
-            break;  
+            
+            break;
         }
     }
-    adminRepository.save(admin); 
+    adminRepository.save(admin);
 }
+
 
     
     @Override

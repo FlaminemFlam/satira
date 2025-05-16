@@ -61,10 +61,17 @@
                     <p th:text="${post.contenuto}"></p>
                     <div class="post-options">
                       <div class="row">
-                        <ul class="post-share">
+                        <ul class="post-share">Condividi
                           <li><i class="fa fa-share-alt"></i></li>
-                          <li><a href="#">Facebook</a>,</li>
-                          <li><a href="#"> Twitter</a></li>
+                          <li><a href="https://www.facebook.com/sharer/sharer.php?u=<URL>">
+                              Facebook
+                            </a> - </li>
+                          <li><a href="https://twitter.com/share?url=<URL>&text=<TEXT>via=<USERNAME>">
+                              Twitter
+                            </a> - </li>
+                          <li><a href="https://reddit.com/submit?url=<URL>&title=<TITLE>">
+                              Reddit
+                            </a></li>
                         </ul>
                       </div>
                     </div>
@@ -183,14 +190,14 @@
                 <div class="container col-lg-6 imgautore">
                   <img th:src="${post.admin.img}" alt="img" style="border-radius: 50%;">
                 </div>
-                
+
               </div>
 
             </div>
 
 
 
-            
+
 
             <div class="col-lg-12">
               <div class="sidebar-item recent-posts">

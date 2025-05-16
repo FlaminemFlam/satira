@@ -49,6 +49,7 @@ public class Post {
         orphanRemoval = true
     )
     private List <Commento> commento = new ArrayList<>();
-
+    
+    @Column(name = "visible", columnDefinition = "TINYINT")
     private Integer visible; 
 }

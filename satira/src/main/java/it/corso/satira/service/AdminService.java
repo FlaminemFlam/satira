@@ -9,7 +9,7 @@ public interface AdminService {
     Admin datiAdmin(Integer id);
     String aggiuntaPost(Integer idPost, HttpSession session);
     void rimozionePost(Integer id, HttpSession session);
-    void modificaPost(Integer id, String operation, HttpSession session);
+    void modificaPost(Integer id, Integer visible, HttpSession session);
     void registrazioneAdmin(Admin admin);
     String controlloUsername(String username);
 }

@@ -116,7 +116,7 @@ img {
     height: auto;
 }
 
-svg {
+.containerCustom svg {
     height: 70px;
     width: 70px;
     color: var(--third-color);
@@ -164,7 +164,7 @@ div#carouselExampleCaptions {
 
 .lista-croci li::before {
     content: "✝ ";
-    color: black;
+    color: var(--third-color);
     margin-right: 0.5em;
     font-size: 1.2em;
 }

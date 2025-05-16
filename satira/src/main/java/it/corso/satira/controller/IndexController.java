@@ -1,6 +1,5 @@
 package it.corso.satira.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,7 @@ import it.corso.satira.model.Post;
 import it.corso.satira.model.Commento;
 import it.corso.satira.model.Admin;
 import it.corso.satira.service.PostService;
+import jakarta.servlet.http.HttpSession;
 import it.corso.satira.service.CommentiService;
 import it.corso.satira.service.AdminService;
 
@@ -31,13 +31,14 @@ public class IndexController {
     private AdminService adminService;
 
     @GetMapping
-    public String renderPage(Model model, @RequestParam(required = false) Integer id){
+    public String renderPage(Model model, @RequestParam(required = false) Integer id, HttpSession session) {
         List<Post> posts = postService.elencoPost();
+        Admin adminSession = (Admin) session.getAttribute("admin");
         List<Commento> commenti = commentiService.elencoCommenti();
-        Admin admin = id == null ? new Admin() : adminService.datiAdmin(id);
+        Admin admin = id == null ? new Admin() : adminService.datiAdmin(adminSession.getId());
         model.addAttribute("posts", posts);
-        model.addAttribute("commenti",commenti);
-        model.addAttribute("admin",admin);
+        model.addAttribute("commenti", commenti);
+        model.addAttribute("admin", admin);
         return "index";
     }
 }

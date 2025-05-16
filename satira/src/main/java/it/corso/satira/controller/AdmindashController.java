@@ -68,7 +68,7 @@ public class AdmindashController {
     @PostMapping
     public String gestioneForm(HttpSession session, @RequestParam String titolo, @RequestParam String contenuto,
     @RequestParam LocalDateTime dataPubblicazione, @RequestParam(required = false) Integer idCommento,
-    @RequestParam(required = false) MultipartFile immaginePost, @RequestParam Integer visible) {
+    @RequestParam(required = false) MultipartFile immaginePost, @RequestParam(name="visible", defaultValue="0") Integer visible) {
         
         // Recupero l'oggetto Admin dalla sessione
         Admin adminSession = (Admin) session.getAttribute("admin");

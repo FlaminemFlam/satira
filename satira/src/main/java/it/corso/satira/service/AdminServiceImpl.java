@@ -78,19 +78,31 @@ public String aggiuntaPost(Integer idPost, HttpSession session) {
         }
     }
     
-    @Override
-    public void modificaPost(Integer id, String operation, HttpSession session) {
-        Admin adminSessione = (Admin) session.getAttribute("admin");
-        Admin admin = adminRepository.findById(adminSessione.getId()).get();
-        for(Post post : admin.getPost()){
-            if(post.getId().equals(id)){
-                ((Post) admin.getPost()).setDataPubblicazione(LocalDateTime.now());
-                ((Post) admin.getPost()).setAdmin(admin);
-                admin.setPost(admin.getPost());
-                adminRepository.save(admin);
-            }
+@Override
+public void modificaPost(Integer id, Integer visible, HttpSession session) {
+    // Recupero l'admin dalla sessione
+    Admin adminSessione = (Admin) session.getAttribute("admin");
+    if(adminSessione == null) {
+        return;
+    }
+
+    Admin admin = adminRepository.findById(adminSessione.getId()).orElse(null);
+    if(admin == null) {
+        return;
+    }
+
+    // Itero sui post dell'admin per trovare quello da modificare
+    for (Post post : admin.getPost()) {
+        if (post.getId().equals(id)) {
+            post.setDataPubblicazione(LocalDateTime.now());
+            post.setVisible(visible);  
+            post.setAdmin(admin);
+            break;  
         }
     }
+    adminRepository.save(admin); 
+}
+
     
     @Override
     public String controlloUsername(String username) {

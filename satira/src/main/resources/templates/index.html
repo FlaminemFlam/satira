@@ -30,7 +30,7 @@
                     <a class="nav-link fc-t fs-4" th:href="@{/adminForm} ">Unisciti a noi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fc-t fs-4" th:href="@{/loginAdmin} " th:text="${admin.username != null} ? ${admin.username} : 'Login'">Login</a>
+                    <a class="nav-link fc-t fs-4" th:href="@{/loginAdmin} " th:text="${session.admin != null} ? ${session.admin.username} : 'Login' ">Login</a>
                 </li>
 
             </ul>

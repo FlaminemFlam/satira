@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import it.corso.satira.model.Commento;
 import it.corso.satira.model.Post;
@@ -26,11 +25,7 @@ public class CommentoController {
     private PostService postService;
 
     @PostMapping("/aggiungicommento")
-    public String aggiungiCommento(
-            @RequestParam("testo") String testo,
-            @RequestParam("postId") Integer postId,
-            @RequestParam(value = "immagine", required = false) String immagine,
-            RedirectAttributes redirectAttributes) {
+    public String aggiungiCommento(@RequestParam(required = false) String testo, @RequestParam("postId") Integer postId,@RequestParam(value = "immagine", required = false) String immagine) {
 
         // Crea un nuovo commento
         Commento commento = new Commento();
@@ -42,9 +37,6 @@ public class CommentoController {
             
         // Salva l'immagine nel campo immagineCommento
         commento.setImmagineCommento(immagine);
-
-                
-
 
     }
         // Imposta il post a cui si riferisce il commento

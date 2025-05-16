@@ -119,7 +119,7 @@ img {
 svg {
     height: 70px;
     width: 70px;
-    color: black;
+    color: var(--third-color);
 }
 
 .riquadroTest {

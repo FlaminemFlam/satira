@@ -29,7 +29,9 @@ img {
 	border-bottom: 1px solid #969696;
 }
 
-
+.autorepost{
+	border: 1px solid #969696;
+}
 /*titolo post*/
 .blog-posts .down-content h2 {
 	font-size: xx-large;
@@ -224,7 +226,7 @@ img {
 /* Sidebar */
 
 .sidebar {
-	margin-left: 30px;
+	margin-left: 2%;
 }
 
 .sidebar .sidebar-item {
@@ -259,6 +261,7 @@ img {
     
 }
 
+
 .sidebar .recent-posts .container {
     height: fit-content;
 }
@@ -270,7 +273,7 @@ img {
 .sidebar .recent-posts ul li {
 	margin-bottom: 15px;
 	padding-bottom: 15px;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #969696;
 }
 
 .sidebar .recent-posts ul li:last-child {

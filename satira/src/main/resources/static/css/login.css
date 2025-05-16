@@ -6,6 +6,10 @@ html, body {
   padding: 0;
 }
 
+.hamburgermenu{
+  z-index: 7;
+}
+
 .content{
   flex: 1; 
 }
@@ -13,6 +17,7 @@ html, body {
 nav{
   z-index:6;
 }
+
 footer {
   margin-top: auto;
   flex:0;

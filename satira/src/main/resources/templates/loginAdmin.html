@@ -15,76 +15,109 @@
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
 </head>
+
 <body>
-<!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg fc-fb w-100">
+    <!--NAVBAR-->
+    <nav class="navbar navbar-expand-lg fc-fb w-100 customNav">
         <div class="container d-flex navImg">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
             <img th:src="@{immagini/memeLogo.png}" alt="logo" style="width: 10%;">
             <h1 class="p-0"><strong><a th:href="@{/} " class="text-decoration-none fc-t">LA SANTA MEME</a></strong></h1>
             <ul class="nav justify-content-end">
+
                 <li class="nav-item">
-                    <a class="nav-link fc-t fs-4" th:href="@{/adminForm} ">Unisciti a noi</a>
+                    <a class="nav-link fc-t fs-4" th:href="@{/} ">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fc-t fs-4" th:href="@{/loginAdmin} ">Login</a>
+                    <a class="nav-link fc-t fs-4" th:href="@{/adminForm} ">Unisciti a noi</a>
                 </li>
             </ul>
         </div>
     </nav>
 
+    <nav class="hamburgermenu ">
+        <button class="btn fc-tb py-2" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list "
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+            </svg></button>
 
-
-<!--LOGIN CONTAINER-->
-<div class="page-container">
-<div class="fc-pb content wrapper">
-<div class="login-container py-5">
-    <div class="login-form_area">
-        <p class="login-title">LOGIN</p>
-        <h5 th:if="${errore != null}" th:text="${errore}" class="text-center text-danger"></h5>
-        <form action="/loginAdmin" method="post">
-            <!--USERNAME-->
-            <div class="login-form_group">
-                <label class="login-sub_title" for="name"></label>
-                <input type="text" name="username" placeholder="USERNAME" class="login-form_style" required>
+        <div class="offcanvas offcanvas-start fc-fb" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+            aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div class="offcanvas-header d-flex flex-column">
+                <img th:src="@{immagini/memeLogo.png}" alt="logo" style="width: 10%;">
+                <button type="button" class="btn-close fc-sb" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <!--PASSWORD-->
-            <div class="login-form_group">
-                <label class="login-sub_title" for="password"></label>
-                <input type="password" name="password" placeholder="PASSWORD" class="login-form_style" required>
+            <div class="offcanvas-body">
+                <ul class="nav justify-content-end d-flex flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link fc-t fs-4" th:href="@{/} ">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fc-t fs-4" th:href="@{/adminForm} ">Unisciti a noi</a>
+                    </li>
+
+                </ul>
             </div>
-            <div>
-                <button class="login-btn" type="submit">ENTRA</button></div>
-        </form>
-    </div>
-</div>
-</div>
+        </div>
+    </nav>
 
 
-<!--FOOTER-->
-    <footer class="fc-fb text-center text-white">
-        <div class="container p-4">
-            <section class="">
-                <div class="row">
-                    <div class="col col-md-12 mb-4 mb-md-0">
-                        <h5 class="text-uppercase">La Santa Meme</h5>
-                        <p>
-                            L'ennesimo portale italiano dedicato ai meme religiosi, dove la fede incontra l'ironia
-                            in un mix assolutamente divino.
-                        </p>
-                    </div>
+
+    <!--LOGIN CONTAINER-->
+    <div class="page-container">
+        <div class="fc-pb content wrapper">
+            <div class="login-container py-5">
+                <div class="login-form_area">
+                    <p class="login-title">LOGIN</p>
+                    <h5 th:if="${errore != null}" th:text="${errore}" class="text-center text-danger"></h5>
+                    <form action="/loginAdmin" method="post">
+                        <!--USERNAME-->
+                        <div class="login-form_group">
+                            <label class="login-sub_title" for="name"></label>
+                            <input type="text" name="username" placeholder="USERNAME" class="login-form_style" required>
+                        </div>
+                        <!--PASSWORD-->
+                        <div class="login-form_group">
+                            <label class="login-sub_title" for="password"></label>
+                            <input type="password" name="password" placeholder="PASSWORD" class="login-form_style"
+                                required>
+                        </div>
+                        <div>
+                            <button class="login-btn" type="submit">ENTRA</button>
+                        </div>
+                    </form>
                 </div>
-            </section>
+            </div>
         </div>
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2025 CopyrightMemetico:
-            <a class="text-white" href="#">LaSantaMeme.com</a>
-        </div>
-    </footer>
-</div>
 
-<svg preserveAspectRatio="xMidYMid slice" viewBox="10 10 80 80">
-    <!--<defs>
+
+        <!--FOOTER-->
+        <footer class="fc-fb text-center text-white">
+            <div class="container p-4">
+                <section class="">
+                    <div class="row">
+                        <div class="col col-md-12 mb-4 mb-md-0">
+                            <h5 class="text-uppercase">La Santa Meme</h5>
+                            <p>
+                                L'ennesimo portale italiano dedicato ai meme religiosi, dove la fede incontra l'ironia
+                                in un mix assolutamente divino.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2025 CopyrightMemetico:
+                <a class="text-white" href="#">LaSantaMeme.com</a>
+            </div>
+        </footer>
+    </div>
+
+    <svg preserveAspectRatio="xMidYMid slice" viewBox="10 10 80 80">
+        <!--<defs>
         <style>
             @keyframes rotate {
 					 0% {
@@ -112,11 +145,15 @@
             }
         </style>
     </defs>-->
-    <path fill="var(--third-color)" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
-    <path fill="var(--second-color)" class="in-top" d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"/>
-    <path fill="var(--third-color)" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
-    <path fill="var(--second-color)" class="in-bottom" d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"/>
-</svg>
+        <path fill="var(--third-color)" class="out-top"
+            d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z" />
+        <path fill="var(--second-color)" class="in-top"
+            d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z" />
+        <path fill="var(--third-color)" class="out-bottom"
+            d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z" />
+        <path fill="var(--second-color)" class="in-bottom"
+            d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z" />
+    </svg>
 </body>
 
 

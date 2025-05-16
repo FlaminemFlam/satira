@@ -18,7 +18,7 @@
 
 
 <body class="fc-pb">
-    <nav class="navbar navbar-expand-lg fc-fb ">
+    <nav class="navbar navbar-expand-lg fc-fb customNav">
         <div class="container d-flex navImg ">
             <!-- <a class="navbar-brand" href="#">Navbar</a> -->
             <img th:src="@{immagini/memeLogo.png}" alt="logo" style="width: 10%;">
@@ -40,6 +40,41 @@
         </div>
 
     </nav>
+
+    <nav class="hamburgermenu ">
+        <button class="btn fc-tb py-2" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><svg
+                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list "
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+            </svg></button>
+
+        <div class="offcanvas offcanvas-start fc-fb" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+            aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div class="offcanvas-header d-flex flex-column">
+                <img th:src="@{immagini/memeLogo.png}" alt="logo" style="width: 10%;">
+                <button type="button" class="btn-close fc-sb" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="nav justify-content-end d-flex flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link fc-t fs-4" th:href="@{/} ">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a th:text="|Logout ${admin.username}" th:href="@{/admindash/logout}"
+                            class="nav-link fc-t -fs-4"></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fc-t fs-4" th:href="@{/admindash/creaAdmin}">Crea Admin</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container mt-5">
 
         <!-- SEZIONE POST -->
@@ -58,10 +93,12 @@
                         <td class="align-middle p-1 m-1 fs-6" th:text="${post.contenuto}"></td>
                         <td class="align-middle p-1 m-1 fs-6" th:text="|${post.admin.nickname}|"></td>
                         <td class="align-middle text-end p-2">
-                            <a th:href="@{/admindash(id=${post.id})}" class="btn btn-outline-primary btn-sm">Modifica</a>
+                            <a th:href="@{/admindash(id=${post.id})}"
+                                class="btn btn-outline-primary btn-sm">Modifica</a>
                         </td>
                         <td class="align-middle text-end p-2">
-                            <button class="btn btn-sm btn-outline-danger elimina" th:value="|${post.titolo}@${post.id}|">Elimina</button>
+                            <button class="btn btn-sm btn-outline-danger elimina"
+                                th:value="|${post.titolo}@${post.id}|">Elimina</button>
                         </td>
                     </tr>
                 </table>
@@ -75,17 +112,19 @@
             <h4 class="text-center">Aggiunta/Modifica Post</h4>
             <div class="row">
                 <div class="col-6">
-                    <input name="dataPubblicazione" th:value="${post.dataPubblicazione}" type="datetime-local" placeholder="Data pubblicazione" class="form-control mt-3" required>
+                    <input name="dataPubblicazione" th:value="${post.dataPubblicazione}" type="datetime-local"
+                        placeholder="Data pubblicazione" class="form-control mt-3" required>
                 </div>
                 <div class="col-6">
-                    <input type="text" name="titolo" th:value="${post.titolo}" placeholder="Titolo" class="form-control mt-3" required>
+                    <input type="text" name="titolo" th:value="${post.titolo}" placeholder="Titolo"
+                        class="form-control mt-3" required>
                     <small th:if="${errori != null && errori.containsKey('titolo')}" th:text="${errori.get('titolo')}"
                         class="text-danger"></small>
                 </div>
             </div>
             <div class="row">
-                <input type="text-area" name="contenuto" th:value="${post.contenuto}" placeholder="Contenuto" class="form-control mt-3 mx-2"
-                    required>
+                <input type="text-area" name="contenuto" th:value="${post.contenuto}" placeholder="Contenuto"
+                    class="form-control mt-3 mx-2" required>
             </div>
             <div class="row">
                 <div class="col-6">
@@ -104,7 +143,7 @@
                 <input type="submit" value="Invio Dati" class="btn btn-success">
             </div>
         </div>
-        
+
         <hr>
 
         <div class="row justify-content-center mt-4">

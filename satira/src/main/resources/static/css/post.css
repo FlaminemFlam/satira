@@ -30,17 +30,16 @@ img {
 	border-right: 1px solid var(--third-color);
 	border-left: 1px solid var(--third-color);
 	border-bottom: 1px solid var(--third-color);
+	border-top: 1px solid var(--third-color);
 }
 
 .autorepost{
-	border-right: 1px solid var(--third-color);
-	border-left: 1px solid var(--third-color);
 	padding-top: 2%;
 	display: flex;
-  flex-direction:row;
-  align-items: center;
-  margin-left: 5%;
-	margin-right: 5%;
+	flex-direction:row;
+	align-items: center;
+	margin-left: 8%;
+	margin-right: 8%;
 }
 
 .autorepost, .nomeautore{
@@ -138,12 +137,12 @@ img {
 	border-bottom: 1px solid var(--third-color);;
 	padding-bottom: 15px;
 	margin-bottom: 25px;
-    margin-left:5%;
-    margin-right: 5%;
+    margin-left:8%;
+    margin-right: 8%;
 }
 
 .blog-posts .comments {
-	margin-top: 2%;
+	margin-top: 5%;
     list-style-type: none;
     margin-left: 0;
     padding: 0;
@@ -156,7 +155,6 @@ img {
 /*blocco commenti*/
 .blog-posts .comments ul li {
 	display: inline-block;
-
 	padding-bottom: 20px;
     word-break: break-word;
     margin-right: 3%;
@@ -206,7 +204,7 @@ img {
 .blog-posts .submit-comment input {
 	width: 100%;
 	height: 46px;
-	border: 4px solid var(--third-color);
+
 	font-size: 13px;
 	text-transform: uppercase;
 	font-weight: 500;
@@ -214,16 +212,17 @@ img {
 	padding: 0px 15px;
 	margin-bottom: 5%;
 	border-radius: 25px;
+	border: 3px solid black;
+	box-shadow: 3px 4px 0px 1px var(--third-color);
 	
 }
 .blog-posts .submit-comment form {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 .blog-posts .submit-comment textarea {
 	width: 100%;
 	height: 46px;
-	border: 4px solid var(--third-color);;
 	font-size: 13px;
 	text-transform: uppercase;
 	font-weight: 500;
@@ -235,8 +234,9 @@ img {
 	max-width: 100%;
 	min-width: 160px;
 	border-radius: 25px;
+	border: 3px solid black;
+	box-shadow: 3px 4px 0px 1px var(--third-color);
 }
-
 
 .blog-posts .submit-comment button {
 	display: inline-block;
@@ -249,10 +249,11 @@ img {
 	transition: all .3s;
 	border: none;
 	outline: none;
+	box-shadow: 3px 4px 0px 1px var(--third-color);
 }
 
 .blog-posts .submit-comment button:hover {
-	background-color: var(--third-color);
+	background-color: var(--fifth-color);
 }
 
 
@@ -279,7 +280,27 @@ img {
 }
 
 
-
+.sidebar .sidebar-heading-commento h2 {
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: 900;
+	letter-spacing: 0.5px;
+	color: var(--third-color);
+	border-bottom: 1px solid var(--third-color);;
+	padding-bottom: 15px;
+	margin-bottom: 25px;
+}
+.blog-posts .sidebar-heading-commento h2 {
+	font-size: xx-large;
+	font-weight: 900;
+	letter-spacing: 0.5px;
+	color: var(--third-color);
+	border-bottom: 1px solid var(--third-color);;
+	padding-bottom: 15px;
+	margin-bottom: 25px;
+    margin-left:3%;
+    margin-right: 3%;
+}
 
 
 .sidebar .recent-posts .container {
@@ -293,9 +314,8 @@ img {
 .sidebar .recent-posts ul li {
 	margin-bottom: 15px;
 	padding-bottom: 15px;
-	border-bottom: 1px solid var(--third-color);
-	margin-left: 5%;
-	margin-right: 5%;
+	margin-left: 8%;
+	margin-right: 8%;
 	text-align: left;
 }
 
@@ -310,8 +330,8 @@ img {
 }
 .sidebar-item .recent-posts , .ads{
 	margin-bottom: 2%;
-	margin-left: 5%;
-	margin-right: 5%;
+	margin-left: 8%;
+	margin-right: 8%;
 }
 .sidebar .recent-posts ul li a {
 	font-size: 19px;
@@ -386,4 +406,26 @@ button:hover {
 button:active {
  box-shadow: none;
  transform: translateY(0);
+}
+
+
+
+@media(max-width:1200px){
+	body {
+        font-size: xx-large;
+    }
+
+	.sidebar{
+		margin-top:8%;
+	}
+	.autorepost, .nomeautore{
+   text-align: center;
+   font-weight: bold;
+   font-size:xx-large;
+}
+   .autorepost, .imgautore{
+   padding-left: 10%;
+   padding-right: 10%;
+   margin-top: 4%;
+}
 }

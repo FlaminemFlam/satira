@@ -125,7 +125,7 @@
               <!--LISTA COMMENTI-->
               <div class="col-lg-12">
                 <div class="sidebar-item comments">
-                  <div class="sidebar-heading">
+                  <div class="sidebar-heading-commento">
                     <h2>COMMENTI</h2>
                   </div>
                   <div class="content">
@@ -152,7 +152,7 @@
               <!--INSERISCI COMMENTO-->
               <div class="col-lg-12">
                 <div class="sidebar-item submit-comment">
-                  <div class="sidebar-heading">
+                  <div class="sidebar-heading-commento">
                     <h2>COMMENTA</h2>
                   </div>
                   <div class="content">
@@ -192,10 +192,10 @@
                         <input type="hidden" id="immagine" name="immagine" value="">
 
                         <!-- Fieldset per la ricerca e il commento -->
-                        <fieldset>
+                        <fieldset class="bordo">
                           <input type="text" id="search" placeholder="Cerca Gif…">
                           <button id="btnGif" type="button" onclick="getGif();" class="btn btn-outline-danger">
-                            Gif
+                          Gif
                           </button>
                           <textarea name="testo" rows="6" id="testo" placeholder="Scrivi il tuo commento"></textarea>
                         </fieldset>
@@ -216,12 +216,16 @@
           </div>
         </div>
 
+        <!--BARRA LATERALE-->
         <div class="col-lg-4 col-xl-4 px-4 d-flex flex-column">
           <div class="sidebar">
             <div class="col-lg-12">
+              <div class="sidebar-heading">
+                <h2>Autore del post:</h2>
+              </div>
               <div class="row autorepost">
                 <div class="container col-lg-6 nomeautore">
-                  <a th:text="|autore del post ${post.admin.nickname}|"></a>
+                  <a th:text="${post.admin.nickname}"></a>
                 </div>
                 <div class="container col-lg-6 imgautore">
                   <img th:src="${post.admin.img}" alt="img" style="border-radius: 50%;">

@@ -58,6 +58,7 @@ img {
 	margin: 8px 0px 10px 0px;
 }
 
+
 .blog-posts .down-content ul.post-info li {
 	display: inline-block;
 	margin-right: 8px;
@@ -78,7 +79,7 @@ img {
 }
 
 .blog-posts .down-content ul.post-info li a {
-	font-size: 14px;
+	font-size: larger;
 	color: var(--third-color);
 	font-weight: 400;
 	transition: all .3s;

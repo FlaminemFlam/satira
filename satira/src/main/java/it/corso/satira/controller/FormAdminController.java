@@ -43,10 +43,10 @@ public class FormAdminController {
         // Costruisco il contenuto dell'email
         String confirmationLink = "http://localhost:8080/admindash/creaAdmin?token=" + token;
         String emailBody = "Salve mi chiamo " + form.getCognome() + " " + form.getNome() + ",\n\n" +
-        "Richiedo di avere accesso come Admin, clicca sul seguente link:\n" +
+        "Richiedo di avere accesso come Admin, cliccare sul seguente link per avviare registrazione:\n" +
         confirmationLink + "\n\n" +
         "Cordiali Saluti, " + form.getNome() + " " + form.getCognome() + "\n" ;
-        emailService.sendMail("gia.minisi@gmail.com", "Crea Admin", emailBody);
+        emailService.sendMail("gia.minisi@gmail.com", "Nuovo Admin", emailBody);
         
         return "redirect:/adminForm?success";
     }

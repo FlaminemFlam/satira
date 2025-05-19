@@ -257,6 +257,36 @@
         function resumeTicker() {
             ticker.style.animationPlayState = "running";
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const contenitore = document.querySelector('.notizie-scorrimento');
+            const contenuto = document.querySelector('.scorrimento-contenuto');
+
+            const containerWidth = contenitore.offsetWidth;
+            const contentWidth = contenuto.offsetWidth;
+
+            // Inizializza la posizione: completamente fuori a destra
+            let pos = containerWidth;
+
+            // Calcolo della posizione finale centrata
+            const centerPosition = (containerWidth - contentWidth) / 2;
+
+            // Imposta posizione iniziale
+            contenuto.style.transform = `translateX(${pos}px)`;
+
+            const speed = 2; // pixel per frame
+
+            function anima() {
+                pos -= speed;
+                contenuto.style.transform = `translateX(${pos}px)`;
+
+                if (pos > centerPosition) {
+                    requestAnimationFrame(anima);
+                }
+            }
+
+            anima();
+        });
     </script>
 
 </body>

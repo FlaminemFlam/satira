@@ -197,35 +197,19 @@ div#carouselExampleCaptions {
 
 /*Scorrimento + opzioni di navigazione*/
 
-.tipo-display {
-    display: flex;
-    justify-content: center;
-    gap: 5rem;
-}
-
 .notizie-scorrimento {
     width: 100%;
     overflow: hidden;
-    background-color: 0c0c0c;
     color: #FFE6E6;
     padding: 10px 0;
     white-space: nowrap;
+    position: relative;
 }
 
 .scorrimento-contenuto {
     display: inline-block;
-    padding-left: 100%;
-    animation: scorrimento 15s linear infinite;
-}
-
-@keyframes scorrimento {
-    from {
-        transform: translateX(0%);
-    }
-
-    to {
-        transform: translateX(-100%);
-    }
+    position: relative;
+    will-change: transform;
 }
 
 /* Scorrimento notizie */

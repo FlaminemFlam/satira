@@ -201,29 +201,40 @@ d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659
         const mainCol = document.getElementById('colonnaPrincipale');
         const sidebar = document.getElementById('scrollLaterale');
         const bgDiv = mainCol.querySelector('.riquadroTest');
-        
+
         // Estrai l'URL dell'immagine di sfondo
         const bgImage = window.getComputedStyle(bgDiv).backgroundImage;
         const imageUrl = bgImage.slice(5, -2); // Rimuove 'url("...")'
-        
+
+        // Verifica se c'è effettivamente un'immagine
+        if (bgImage === 'none' || !imageUrl || imageUrl.trim() === '') {
+            // Nessuna immagine: lascia che la colonna laterale si adatti al contenuto
+            sidebar.style.maxHeight = '';
+            sidebar.style.overflowY = '';
+            bgDiv.style.height = '';
+            return;
+        }
+
         const img = new Image();
         img.onload = function () {
             // Calcola l'altezza dell'immagine in base alla larghezza del contenitore
             const containerWidth = bgDiv.offsetWidth;
             const aspectRatio = img.height / img.width;
             const calculatedHeight = containerWidth * aspectRatio;
-            
+
             // Imposta l'altezza del contenitore dell'immagine
             bgDiv.style.height = `${calculatedHeight}px`;
-            
-            // Imposta l'altezza massima della colonna laterale
+
+            // Imposta l'altezza massima della colonna laterale e abilita lo scroll
             sidebar.style.maxHeight = `${calculatedHeight}px`;
+            sidebar.style.overflowY = 'auto';
         };
-        img.src = imageUrl;
     }
-    
+
     window.addEventListener('load', setSidebarHeight);
     window.addEventListener('resize', setSidebarHeight);
+
+
     
     let ticker;
     let animationDuration;

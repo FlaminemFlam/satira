@@ -177,6 +177,7 @@ div#carouselExampleCaptions {
     padding-right: 0.5rem;
     scrollbar-width: thin;
     scrollbar-color: #999 transparent;
+    max-height: 600px;
 }
 
 .scroll-laterale a {

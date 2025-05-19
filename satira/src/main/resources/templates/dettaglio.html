@@ -92,7 +92,7 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="blog-post">
-                  <div class="blog-thumb">
+                  <div class="blog-thumb" th:style="${immaginePost == 'NULL' ? 'display:none' : 'display:block'}" >
                     <img th:src="${post.immaginePost}" alt="img">
                   </div>
                   <div class="down-content">

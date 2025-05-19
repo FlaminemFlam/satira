@@ -372,5 +372,29 @@ div#carouselExampleCaptions {
     }
 }
 
+.btnMod {
+
+    color: black !important;
+}
+
+.btnMod:hover {
+    background-color: var(--third-color) !important;
+    color: white !important;
+}
+
+.btnInvio {
+    display: inline-block;
+    background-color: var(--second-color);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 20px;
+    text-transform: uppercase;
+    transition: all .3s;
+    border: none;
+    outline: none;
+    box-shadow: 3px 4px 0px 1px var(--third-color);
+}
+
 
 /* Admindash */

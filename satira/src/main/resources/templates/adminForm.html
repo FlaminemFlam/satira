@@ -17,54 +17,81 @@
     <style>
         .hamburgermenu {
             z-index: 6;
-        }nav {
-            z-index: 5;
-        }footer {
-            z-index: 4;
-        }.card {
-            z-index: 3;
-        }.page-container {
-            z-index: 2;
-            position: relative;
         }
 
-        @media (max-width: 1024px) {
         nav {
-          z-index: 5;
-          position: relative;
+            z-index: 5;
         }
-        .hamburgermenu {
-        z-index: 6;
-        position: fixed;
-        display: block;
-        height:0px;
-        width: 40px;
-        }
+
         footer {
             z-index: 4;
         }
-        .page-container {
-            z-index: 2;
-        }
+
         .card {
             z-index: 3;
         }
-        
-        .hamburgermenu, .prova {
-            height:35px;
-            width:43px;
+
+        .page-container {
+            z-index: 2;
+            position: relative;
         }
-        .hamburgermenu {
-    svg {
-        width: 40px;
-        height: 60px;
-    }
+        .card {
+  outline: none;
+  border: 3px solid black;
+  box-shadow: 4px 4px 0px 1px var(--third-color);
+  padding: 12px 10px;
+  border-radius: 15px;
+  font-size: larger;
+}.card-header:first-child{
+    text-align: center;
+    border-radius: 15px;
+    align-items: center;
 }
 
-        .py2-{
-            padding-top:auto;
-        }}
-        
+        @media (max-width: 1024px) {
+            nav {
+                z-index: 5;
+                position: relative;
+            }
+
+            .hamburgermenu {
+                z-index: 6;
+                position: fixed;
+                display: block;
+                height: 0px;
+                width: 40px;
+            }
+
+            footer {
+                z-index: 4;
+            }
+
+            .page-container {
+                z-index: 2;
+            }
+
+            .card {
+                z-index: 3;
+            }
+
+            .hamburgermenu,
+            .prova {
+                height: 35px;
+                width: 43px;
+            }
+
+            .hamburgermenu {
+                svg {
+                    width: 40px;
+                    height: 60px;
+                }
+            }
+
+            .py2- {
+                padding-top: auto;
+            }
+        }
+
         svg {
             position: fixed;
             z-index: 1;
@@ -168,9 +195,10 @@
     <div class="page-container">
         <div class="container mt-5 vh">
             <div class="row justify-content-center">
-                <div class="col-md-6">
+                <div class="col-md-6 formstile">
                     <div class="card">
                         <div class="card-header text-center fc-fb fc-s">
+                            
                             <h2>Richiedi l'accesso come Admin</h2>
                         </div>
                         <div class="card-body">

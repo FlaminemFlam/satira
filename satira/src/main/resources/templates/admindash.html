@@ -108,25 +108,24 @@
 
         <!-- FORM DI REGISTRAZIONE/MODIFICA POST -->
         <hr>
-        <form action="/admindash" method="post" enctype="multipart/form-data">
+        <form action="/admindash" method="post" enctype="multipart/form-data" th:object="${post}">
             <div class="row justify-content-center mt-4">
                 <h4 class="text-center">Aggiunta/Modifica Post</h4>
-                <div class="row">
+                <div class="row">                    
                     <div class="col-6">
-                        <input name="dataPubblicazione" th:value="${post.dataPubblicazione}" type="datetime-local"
+                        <input th:field="*{dataPubblicazione}" type="datetime-local"
                             placeholder="Data pubblicazione" class="form-control mt-3" required>
                     </div>
                     <div class="col-6">
-                        <input type="text" name="titolo" th:value="${post.titolo}" placeholder="Titolo"
+                        <input type="text" th:field="*{titolo}" placeholder="Titolo"
                             class="form-control mt-3" required>
                         <small th:if="${errori != null && errori.containsKey('titolo')}" th:text="${errori.get('titolo')}"
                             class="text-danger"></small>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
-                        <textarea name="contenuto" class="form-control mt-3" placeholder="Contenuto" required
-                            style="padding-left: 10px;">[[${post.contenuto}]]</textarea>
+                    <div class="col-12">                        
+                        <input type="text" th:field="*{contenuto}" class="form-control ps-2 mt-3" placeholder="Contenuto" required>
                     </div>
                 </div>
                 <div class="row">
@@ -135,9 +134,8 @@
                     </div>
                     <div class="col-6">
                         <div class="form-check mt-3">
-                            <input type="hidden" name="visible" value="0">
-                            <input type="checkbox" class="form-check-input " name="visible" id="visible" value="1"
-                                th:checked="${post.visible == 1}">
+                            <input type="checkbox" class="form-check-input" th:field="*{visible}" id="visible" value="1"
+                                >
                             <label class="form-check-label" for="visible">Visibile</label>
                         </div>
                     </div>

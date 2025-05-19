@@ -108,69 +108,45 @@
 
         <!-- FORM DI REGISTRAZIONE/MODIFICA POST -->
         <hr>
-        <div class="row justify-content-center mt-4">
-            <h4 class="text-center">Aggiunta/Modifica Post</h4>
-            <div class="row">
-                <div class="col-6">
-                    <input name="dataPubblicazione" th:value="${post.dataPubblicazione}" type="datetime-local"
-                        placeholder="Data pubblicazione" class="form-control mt-3" required>
-                </div>
-                <div class="col-6">
-                    <input type="text" name="titolo" th:value="${post.titolo}" placeholder="Titolo"
-                        class="form-control mt-3" required>
-                    <small th:if="${errori != null && errori.containsKey('titolo')}" th:text="${errori.get('titolo')}"
-                        class="text-danger"></small>
-                </div>
-            </div>
-            <div class="row">
-                <input type="text-area" name="contenuto" th:value="${post.contenuto}" placeholder="Contenuto"
-                    class="form-control mt-3 mx-2" required>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <input type="file" name="immaginePost" class="form-control mt-3">
-                </div>
-                <div class="col-6 align-right">
-                    <div class="form-check mt-3">
-                        <input type="hidden" name="visible" value="0">
-                        <input type="checkbox" class="form-check-input " name="visible" id="visible" value="1"
-                            th:checked="${post.visible == 1}">
-                        <label class="form-check-label" for="visible">Visibile</label>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-4 text-center">
-                <input type="submit" value="Invio Dati" class="btn btn-success">
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="row justify-content-center mt-4">
-            <div class="col-lg-4 border p-4">
+        <form action="/admindash" method="post" enctype="multipart/form-data">
+            <div class="row justify-content-center mt-4">
                 <h4 class="text-center">Aggiunta/Modifica Post</h4>
-                <form action="/admindash" method="post" enctype="multipart/form-data">
-                    <input type="text" name="titolo" th:value="${post.titolo}" placeholder="Titolo"
-                        class="form-control mt-3" required>
-                    <small th:if="${errori != null && errori.containsKey('titolo')}" th:text="${errori.get('titolo')}"
-                        class="text-danger"></small>
-                    <input type="text" name="contenuto" th:value="${post.contenuto}" placeholder="Contenuto"
-                        class="form-control mt-3" required>
-                    <input name="dataPubblicazione" th:value="${post.dataPubblicazione}" type="datetime-local"
-                        placeholder="Data pubblicazione" class="form-control mt-3" required>
-                    <div class="form-check mt-3">
-                        <input type="hidden" name="visible" value="0">
-                        <input type="checkbox" class="form-check-input" name="visible" id="visible" value="1"
-                            th:checked="${post.visible == 1}">
-                        <label class="form-check-label" for="visible">Visibile</label>
+                <div class="row">
+                    <div class="col-6">
+                        <input name="dataPubblicazione" th:value="${post.dataPubblicazione}" type="datetime-local"
+                            placeholder="Data pubblicazione" class="form-control mt-3" required>
                     </div>
-                    <input type="file" name="immaginePost" class="form-control mt-3">
-                    <div class="mt-4 text-center">
-                        <input type="submit" value="Invio Dati" class="btn btn-success">
+                    <div class="col-6">
+                        <input type="text" name="titolo" th:value="${post.titolo}" placeholder="Titolo"
+                            class="form-control mt-3" required>
+                        <small th:if="${errori != null && errori.containsKey('titolo')}" th:text="${errori.get('titolo')}"
+                            class="text-danger"></small>
                     </div>
-                </form>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <textarea name="contenuto" class="form-control mt-3" placeholder="Contenuto" required
+                            style="padding-left: 10px;">[[${post.contenuto}]]</textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <input type="file" name="immaginePost" class="form-control mt-3">
+                    </div>
+                    <div class="col-6">
+                        <div class="form-check mt-3">
+                            <input type="hidden" name="visible" value="0">
+                            <input type="checkbox" class="form-check-input " name="visible" id="visible" value="1"
+                                th:checked="${post.visible == 1}">
+                            <label class="form-check-label" for="visible">Visibile</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 text-center">
+                    <input type="submit" value="Invio Dati" class="btn btn-success">
+                </div>
             </div>
-        </div>
+        </form>
 
     </div>
 

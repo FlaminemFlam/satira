@@ -43,9 +43,10 @@ img {
 }
 
 .autorepost, .nomeautore{
-   text-align: end;
    font-weight: bold;
-   font-size: x-large;
+   font-size: larger;
+   word-break: break-word;
+   text-align: left;
 
 }
 
@@ -425,11 +426,11 @@ button:active {
 	.autorepost, .nomeautore{
    text-align: center;
    font-weight: bold;
-   font-size:xx-large;
+   font-size:x-large;
 }
    .autorepost, .imgautore{
-   padding-left: 10%;
-   padding-right: 10%;
+   padding-left: 1%;
+   padding-right: 1%;
    margin-top: 4%;
 }
 }

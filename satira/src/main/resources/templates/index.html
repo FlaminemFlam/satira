@@ -94,16 +94,16 @@
             <div class="riquadroTest mb-3" th:style="'background-image: url(' + ${posts.?[visible == 1][0].immaginePost} + ');'">
             </div>
             
-            <h3 class="mt-2"><strong th:text="${posts.?[visible == 1][0].titolo}"></strong></h3>
+            <h1 class="mt-2"><strong th:text="${posts.?[visible == 1][0].titolo}"></strong></h1>
             <p th:text="${posts.?[visible == 1][0].contenuto}"></p>
         </div>
         
         <!-- Colonna laterale -->
         <div class="col-lg-6 col-xl-3 px-4 d-flex flex-column">
-            <h5 class="mb-3"><strong>FORSE TE PO' NTERESSÀ:</strong></h5>
+            <h5 class="mb-3 fs-4"><strong>FORSE TE PO' NTERESSÀ:</strong></h5>
             <div id="scrollLaterale" class="scroll-laterale">
                 <ul class="lista-croci">
-                    <li th:each="post : ${posts.?[visible == 1]}" class="mb-2">
+                    <li th:each="post : ${posts.?[visible == 1]}" class="mb-2 fs-5">
                         <a th:href="@{/dettaglio(id=${post.id})}" 
                         th:text="${post.titolo}"
                         class="text-decoration-none fc-t customFont"></a>

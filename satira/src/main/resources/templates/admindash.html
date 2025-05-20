@@ -69,9 +69,50 @@
     </nav>
     <div class="container mt-5">
 
+        <!-- FORM DI REGISTRAZIONE/MODIFICA POST -->
+
+        <form action="/admindash" method="post" enctype="multipart/form-data" th:object="${post}">
+            <div class="row justify-content-center mt-4 mb-5">
+                <h4 class="text-center">Aggiunta/Modifica Post</h4>
+                <div class="row">
+                    <div class="col-6">
+                        <input th:field="*{dataPubblicazione}" type="datetime-local" placeholder="Data pubblicazione"
+                            class="form-control mt-3" required>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" th:field="*{titolo}" placeholder="Titolo" class="form-control mt-3" required>
+                        <small th:if="${errori != null && errori.containsKey('titolo')}" th:text="${errori.get('titolo')}"
+                            class="text-danger"></small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <input type="text" th:field="*{contenuto}" class="form-control ps-2 mt-3" placeholder="Contenuto"
+                            required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <input type="file" name="immaginePost" class="form-control mt-3">
+                    </div>
+                    <div class="col-6">
+                        <div class="form-check mt-3">
+                            <input type="checkbox" class="form-check-input" th:field="*{visible}" id="visible" value="1">
+                            <label class="form-check-label" for="visible">Visibile</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 text-center">
+                    <input type="submit" value="Invio Dati" class="btn btnInvio ">
+                </div>
+            </div>
+        </form>
+
+        <hr>
+
         <!-- SEZIONE POST -->
 
-        <div class="row justify-content-center mt-4">
+        <div class="row justify-content-center mt-5">
             <div class="col-10">
                 <h1 class="text-center"><strong>Post</strong></h1>
                 <h5 th:if="${esito != null}" class="text-center text-danger" th:text="${esito}"></h5>
@@ -98,45 +139,9 @@
         </div>
 
 
-        <!-- FORM DI REGISTRAZIONE/MODIFICA POST -->
-        <hr>
-        <form action="/admindash" method="post" enctype="multipart/form-data" th:object="${post}">
-            <div class="row justify-content-center mt-4 mb-4">
-                <h4 class="text-center">Aggiunta/Modifica Post</h4>
-                <div class="row">                    
-                    <div class="col-6">
-                        <input th:field="*{dataPubblicazione}" type="datetime-local"
-                            placeholder="Data pubblicazione" class="form-control mt-3" required>
-                    </div>
-                    <div class="col-6">
-                        <input type="text" th:field="*{titolo}" placeholder="Titolo"
-                            class="form-control mt-3" required>
-                        <small th:if="${errori != null && errori.containsKey('titolo')}" th:text="${errori.get('titolo')}"
-                            class="text-danger"></small>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">                        
-                        <input type="text" th:field="*{contenuto}" class="form-control ps-2 mt-3" placeholder="Contenuto" required>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-6">
-                        <input type="file" name="immaginePost" class="form-control mt-3">
-                    </div>
-                    <div class="col-6">
-                        <div class="form-check mt-3">
-                            <input type="checkbox" class="form-check-input" th:field="*{visible}" id="visible" value="1"
-                                >
-                            <label class="form-check-label" for="visible">Visibile</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-4 text-center">
-                    <input type="submit" value="Invio Dati" class="btn btnInvio ">
-                </div>
-            </div>
-        </form>
+        
+        
+       
 
     </div>
 

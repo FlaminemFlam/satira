@@ -1,18 +1,19 @@
 @import "style.css";
 
-body{
-	 overflow-x: hidden; 
+body {
+	overflow-x: hidden;
 }
+
 img {
-  max-width: 100%;
-  width: auto;
-  height: auto;
+	max-width: 100%;
+	width: auto;
+	height: auto;
 }
 
 /*POST*/
 .blog-posts {
 	margin-top: 2%;
-	margin-bottom:2%;
+	margin-bottom: 2%;
 }
 
 .blog-posts .blog-post {
@@ -27,27 +28,28 @@ img {
 .blog-posts .down-content {
 	padding: 40px;
 	border: 1px solid var(--third-color);
-    border-bottom-left-radius: 25px;
+	border-bottom-left-radius: 25px;
 	border-bottom-right-radius: 25px;
 }
 
 
 /*AUTORE*/
-.autorepost{
+.autorepost {
 	padding-top: 2%;
 	display: flex;
-	flex-direction:row;
+	flex-direction: row;
 	align-items: center;
 	margin-left: 4%;
 	margin-right: 4%;
 }
 
-.autorepost, .nomeautore{
-   font-weight: bold;
-   font-size: 1.5vw;
-   word-break: break-word;
-   text-align: left;
-   padding-right:0px;
+.autorepost,
+.nomeautore {
+	font-weight: bold;
+	font-size: 1.5vw;
+	word-break: break-word;
+	text-align: left;
+	padding-right: 0px;
 
 }
 
@@ -64,12 +66,12 @@ img {
 .blog-posts .down-content ul.post-info li {
 	display: inline-block;
 	margin-right: 8px;
-	font-size:large;
+	font-size: large;
 }
 
 .grid-system .down-content ul.post-info li {
 	margin-right: 3px;
-	font-size:large;
+	font-size: large;
 }
 
 .grid-system .down-content ul.post-info li:after {
@@ -96,7 +98,7 @@ img {
 	margin: 25px 0px;
 	border-top: 1px solid var(--third-color);
 	border-bottom: 1px solid var(--third-color);
-    font-size: x-large;
+	font-size: x-large;
 }
 
 /*PULSANTI DI SHARE*/
@@ -138,55 +140,56 @@ img {
 /*COMMENTI*/
 .blog-posts .comments {
 	margin-top: 5%;
-    list-style-type: none;
-    margin-left: 0;
-    padding: 0;
+	list-style-type: none;
+	margin-left: 0;
+	padding: 0;
 }
 
 #testo {
-	margin-top:5%;
+	margin-top: 5%;
 }
 
 /*blocco commenti*/
 .blog-posts .comments ul li {
 	display: inline-block;
 	padding-bottom: 20px;
-    word-break: break-word;
-    margin-right: 3%;
+	word-break: break-word;
+	margin-right: 3%;
 	margin-left: 3%;
 	display: list-item;
 	list-style-type: none;
-   
+
 }
 
 .blog-posts .comments ul li .right-content {
-    color: var(--third-color);
+	color: var(--third-color);
 	font-size: 16px;
 	letter-spacing: 0.5px;
-    text-align: justify;
+	text-align: justify;
 	text-justify: inter-word;
 }
 
 .blog-posts .comments ul li .right-content span {
 	font-size: large;
-    color: var(--second-color);
+	color: var(--second-color);
 	font-weight: bolder;
 	letter-spacing: 0.25px;
 }
+
 .blog-posts .comments ul li .right-content p {
 	font-size: large;
-    color: var(--fifth-color);
+	color: var(--fifth-color);
 	font-weight: bold;
 	letter-spacing: 0.3px;
 	margin-left: 5%;
-    margin-right: 10%;
-    text-transform: none;
+	margin-right: 10%;
+	text-transform: none;
 }
 
-.right-content{
-  width:auto;
-  word-wrap: break-word;
-  color: var(--third-color);
+.right-content {
+	width: auto;
+	word-wrap: break-word;
+	color: var(--third-color);
 }
 
 /*input commento*/
@@ -194,7 +197,6 @@ img {
 .blog-posts .submit-comment input {
 	width: 100%;
 	height: 46px;
-
 	font-size: 13px;
 	text-transform: uppercase;
 	font-weight: 500;
@@ -204,12 +206,14 @@ img {
 	border-radius: 25px;
 	border: 3px solid black;
 	box-shadow: 3px 4px 0px 1px var(--third-color);
-	
+
 }
+
 .blog-posts .submit-comment form {
-    margin-left: 3%;
-    margin-right: 3%;
+	margin-left: 3%;
+	margin-right: 3%;
 }
+
 .blog-posts .submit-comment textarea {
 	width: 100%;
 	height: 46px;
@@ -247,18 +251,18 @@ img {
 }
 
 /*GIF*/
-.img-fluid{
-	height:250px;
+.img-fluid {
+	height: 250px;
 }
 
-.carosello{
-	padding-top:.5em;
+.carosello {
+	padding-top: .5em;
 	padding-bottom: .5em;
 }
 
-.carousel-indicators{
-	margin-right:35%;
-	margin-left:35%;
+.carousel-indicators {
+	margin-right: 35%;
+	margin-left: 35%;
 }
 
 /*SIDEBAR*/
@@ -278,11 +282,12 @@ img {
 	font-weight: 900;
 	letter-spacing: 0.5px;
 	color: var(--third-color);
-	border-bottom: 1px solid var(--third-color);;
+	border-bottom: 1px solid var(--third-color);
+	;
 	padding-bottom: 10px;
 	margin-bottom: 10px;
-	margin-left:8%;
-    margin-right: 8%;
+	margin-left: 8%;
+	margin-right: 8%;
 }
 
 
@@ -293,29 +298,32 @@ img {
 	font-weight: 900;
 	letter-spacing: 0.5px;
 	color: var(--third-color);
-	border-bottom: 1px solid var(--third-color);;
+	border-bottom: 1px solid var(--third-color);
+	;
 	padding-bottom: 15px;
 	margin-bottom: 25px;
 }
+
 .blog-posts .sidebar-heading-commento h2 {
 	font-size: xx-large;
 	font-weight: 900;
 	letter-spacing: 0.5px;
 	color: var(--third-color);
-	border-bottom: 1px solid var(--third-color);;
+	border-bottom: 1px solid var(--third-color);
+	;
 	padding-bottom: 15px;
 	margin-bottom: 25px;
-    margin-left:3%;
-    margin-right: 3%;
+	margin-left: 3%;
+	margin-right: 3%;
 }
 
 
 .sidebar .recent-posts .container {
-    height: fit-content;
+	height: fit-content;
 }
 
 .sidebar .recent-posts ul {
-    list-style: none;
+	list-style: none;
 }
 
 .sidebar .recent-posts ul li {
@@ -332,21 +340,25 @@ img {
 	border-bottom: none;
 }
 
-.sidebar-item .recent-posts ,content{
-    text-align: end;
+.sidebar-item .recent-posts,
+content {
+	text-align: end;
 }
-.sidebar-item .recent-posts , .ads{
+
+.sidebar-item .recent-posts,
+.ads {
 	margin-bottom: 4%;
 	margin-left: 8%;
 	margin-right: 8%;
 }
+
 .sidebar .recent-posts ul li a {
 	font-size: 19px;
 	font-weight: 900;
 	color: #20232e;
 	line-height: 30px;
 	transition: all 0.3s;
-    text-align: right;
+	text-align: right;
 
 }
 
@@ -369,70 +381,128 @@ img {
 
 @media (max-width: 2559px) {
 
-    body {
-        font-size: x-large;
+	body {
+		font-size: x-large;
 
-    }
+	}
 }
 
 /*pulsante invia commento*/
 button {
- appearance: none;
- background-color: transparent;
- border-radius: 0.9375em;
- box-sizing: border-box;
- cursor: pointer;
- display: inline-block;
- font-size: small;
- font-weight: 600;
- line-height: normal;
- margin-bottom: 2%;
- min-height: 3.75em;
- min-width: 0;
- outline: none;
- padding: 0.5em 1em;
- text-align: center;
- text-decoration: none;
- transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
- user-select: none;
- -webkit-user-select: none;
- touch-action: manipulation;
- will-change: transform;
+	appearance: none;
+	background-color: transparent;
+	border-radius: 0.9375em;
+	box-sizing: border-box;
+	cursor: pointer;
+	display: inline-block;
+	font-size: small;
+	font-weight: 600;
+	line-height: normal;
+	margin-bottom: 2%;
+	min-height: 3.75em;
+	min-width: 0;
+	outline: none;
+	padding: 0.5em 1em;
+	text-align: center;
+	text-decoration: none;
+	transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	will-change: transform;
 }
 
 button:disabled {
- pointer-events: none;
+	pointer-events: none;
 }
 
 button:hover {
- color: #fff;
- box-shadow: var(--second-color) 0 8px 15px;
- transform: translateY(-2px);
+	color: #fff;
+	box-shadow: var(--second-color) 0 8px 15px;
+	transform: translateY(-2px);
 }
 
 button:active {
- box-shadow: none;
- transform: translateY(0);
+	box-shadow: none;
+	transform: translateY(0);
+}
+
+.comment-parent {
+	display: inline-block;
+	position: relative;
 }
 
 
+.comment-parent .svg-container {
+	position: absolute;
+	right: 30px;
+	top: 160px;
 
-@media(max-width:1200px){
+}
+.comment-parent textarea {
+	display:block;
+}
+
+.dropdown {
+	display: inline-block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 300px;
+	max-height:300px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	padding: 12px 16px;
+	z-index: 1;
+	overflow: auto;
+
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.cercagif { 
+	width:70% !important; 
+	vertical-align: middle !important;
+	/*align-items: baseline AL PADRE */
+}
+.btn-cercagif{
+	vertical-align: middle !important;
+}
+
+#gifcontainer{
+	display: flex;
+	flex-wrap: wrap;
+	flex:1;
+	
+}
+
+.gifwrapper{
+	margin:5px;
+}
+@media(max-width:1200px) {
 	body {
-        font-size: xx-large;
-    }
-
-	.sidebar{
-		margin-top:8%;
+		font-size: xx-large;
 	}
-	.autorepost, .nomeautore{
-   text-align: center;
-   font-weight: bold;
-   font-size:large;
-}
-   .autorepost, .imgautore{
-   padding-left: 1%;
-   padding-right: 1%;
-   margin-top: 4%;
-}
+
+	.sidebar {
+		margin-top: 8%;
+	}
+
+	.autorepost,
+	.nomeautore {
+		text-align: center;
+		font-weight: bold;
+		font-size: large;
+	}
+
+	.autorepost,
+	.imgautore {
+		padding-left: 1%;
+		padding-right: 1%;
+		margin-top: 4%;
+	}
 }

@@ -15,6 +15,7 @@
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
     <style>
+        /*RESPONSIVE*/
         .hamburgermenu {
             z-index: 6;
         }
@@ -35,19 +36,24 @@
             z-index: 2;
             position: relative;
         }
-        .card {
-  outline: none;
-  border: 3px solid black;
-  box-shadow: 4px 4px 0px 1px var(--third-color);
-  padding: 12px 10px;
-  border-radius: 15px;
-  font-size: larger;
-}.card-header:first-child{
-    text-align: center;
-    border-radius: 15px;
-    align-items: center;
-}
 
+        /*STILE FORM*/
+        .card {
+            outline: none;
+            border: 3px solid black;
+            box-shadow: 8px 8px 0px 2px var(--third-color);
+            padding: 12px 10px;
+            border-radius: 15px;
+            font-size: larger;
+        }
+
+        .card-header:first-child {
+            text-align: center;
+            border-radius: 15px;
+            align-items: center;
+        }
+
+        /*RESPONSIVE*/
         @media (max-width: 1024px) {
             nav {
                 z-index: 5;
@@ -92,6 +98,7 @@
             }
         }
 
+        /*ANIMAZIONE*/
         svg {
             position: fixed;
             z-index: 1;
@@ -138,6 +145,18 @@
             height: 1em;
             margin: 0 0 -0.1em 0.3em;
         }
+
+        #reqBtn {
+            transform: translateY(4px);
+            box-shadow: 10px 7px 0px 0px var(--third-color);
+        }
+
+        h3 {
+            color: white;
+            font-size: larger;
+            margin-top:.5rem;
+            }
+
     </style>
 </head>
 
@@ -198,8 +217,8 @@
                 <div class="col-md-6 formstile">
                     <div class="card">
                         <div class="card-header text-center fc-fb fc-s">
-                            
-                            <h2>Richiedi l'accesso come Admin</h2>
+
+                            <h3 style="font-size:1.6vw">Richiedi l'accesso come Admin</h3>
                         </div>
                         <div class="card-body">
                             <form action="#" th:action="@{/adminForm}" th:object="${BecomeAdmin}" method="post">
@@ -218,8 +237,10 @@
                                     <input type="email" id="email" th:field="*{email}" class="form-control"
                                         placeholder="Inserisci la tua email" required>
                                 </div>
-                                <button type="submit" id="reqBtn" class="btn fs-3 fc-fb fc-t w-100">Invia
-                                    Richiesta</button>
+                                <button type="submit" id="reqBtn" class="btn fs-3 fc-fb fc-t w-100">
+                                    <h3>Invia
+                                        Richiesta</h3>
+                                </button>
                             </form>
                         </div>
                     </div>

@@ -117,7 +117,7 @@
                 <h5 th:if="${esito != null}" class="text-center text-danger" th:text="${esito}"></h5>
                 <table class="table table-striped">
                     <tr th:each="post : ${posts}">
-                        <td class="text-center">
+                        <td class="text-center align-middle">
                             <img th:src="${post.immaginePost == null ? 'immagini/no_img.png' : post.immaginePost}"
                                 alt="copertina post" style="max-width: 150px; max-height: 100px;">
                         </td>

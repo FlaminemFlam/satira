@@ -126,8 +126,8 @@
                             <img th:src="${post.immaginePost == null ? 'immagini/no_img.png' : post.immaginePost}"
                                 alt="copertina post" style="max-width: 150px; max-height: 100px;">
                         </td>
-                        <td class="align-middle p-1 m-1 fs-5" th:text="${post.titolo}" style="max-width: 200px;"></td>
-                        <td class="align-middle p-1 m-1 fs-6" th:text="${post.contenuto}"></td>
+                        <td class="align-middle p-1 m-1 fs-5 text-ellipsis" th:text="${post.titolo}" style="max-width: 200px;"></td>
+                        <td class="align-middle p-1 m-1 fs-6 content-ellipsis" th:text="${post.contenuto}"></td>
                         <td class="align-middle p-1 m-1 fs-6" th:text="|${post.admin.nickname}|"></td>
                         <td class="align-middle text-end p-2">
                             <a th:href="@{/admindash(id=${post.id})}"

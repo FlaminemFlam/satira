@@ -141,7 +141,7 @@ public String renderPagina(HttpSession session, Model model,
     Admin adminSessione = (Admin) session.getAttribute("admin");
     Admin admin = adminService.datiAdmin(adminSessione.getId());
     
-    model.addAttribute("admin", adminForm); // Passa l'adminForm invece di un nuovo Admin vuoto
+    model.addAttribute("admin", adminForm); 
     model.addAttribute("esito", esito);
     model.addAttribute("becomeAdmin", becomeAdmin);
     

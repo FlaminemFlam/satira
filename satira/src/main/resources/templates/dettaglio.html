@@ -348,7 +348,7 @@
 
         itemDiv.addEventListener('click', function () {
           document.getElementById("immagine").value = gifUrl;
-          document.getElementById("selected-gif").innerHTML = `<img src="${gifUrl}" class="d-block gif" alt="Gif ${index + 1}"> <a id="cancella" class="remove-image" href="#" style="display: inline;">&#215;</a>`;
+          document.getElementById("selected-gif").innerHTML = `<img src="${gifUrl}" class="d-block gif" alt="Gif ${index + 1}"> <a id="cancella" class="remove-image" style="display: inline;">&#215;</a>`;
           checkInput();
           const eliminagif = document.getElementById('cancella');
           eliminagif.addEventListener('click', function(){
@@ -358,8 +358,6 @@
           })
         })
       });
-
-      
 
     } catch (error) {
       console.error('Errore durante il recupero delle GIF:', error);
@@ -373,7 +371,7 @@
     const comment = document.getElementById('testo').value;
     const submitBtn = document.getElementById('form-submit');
 
-    console.log('AAAAAAAAAAAAAAAAA', immagine, comment)
+  
     // Abilita il bottone se uno dei campi ha testo
     if (!!immagine || !!comment ) {
       submitBtn.disabled = false

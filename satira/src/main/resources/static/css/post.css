@@ -246,6 +246,15 @@ img {
 	background-color: var(--fifth-color);
 }
 
+/*GIF*/
+.img-fluid{
+	height:250px;
+}
+
+.py-5{
+	padding-top:.5em;
+	padding-bottom: .5em;
+}
 
 /*SIDEBAR*/
 .sidebar {

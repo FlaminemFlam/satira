@@ -195,6 +195,12 @@ div#carouselExampleCaptions {
     color: var(--third-color) !important;
 }
 
+.coloree{
+    color: #FFE6E6;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 
 /*Scorrimento + opzioni di navigazione*/

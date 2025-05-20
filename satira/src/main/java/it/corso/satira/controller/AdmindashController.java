@@ -97,50 +97,56 @@ public class AdmindashController {
     
     // Creazione Admin Render
     @GetMapping("/creaAdmin")
-    public String renderPagina(HttpSession session, Model model,
+public String renderPagina(HttpSession session, Model model,
     @RequestParam(required = false) String esito,
     @RequestParam(required = false) String token) {
-        if (session.getAttribute("admin") == null) {
-            return "redirect:/loginAdmin";
-        }
-        
-        // Inizializzazione BecomeAdmin, Serve per il Binding del form (Associazione automatica)
-        BecomeAdmin becomeAdmin = new BecomeAdmin();
-        
-        // Se il token è presente ed è valido, decodificalo e popola l'oggetto BecomeAdmin
-        if (token != null && !token.isEmpty()) {
-            try {
-                byte[] decodedBytes = Base64.getDecoder().decode(token);
-                String decodedString = new String(decodedBytes);
-                
-                // La stringa è strutturata come "nome%cognome%email"
-                
-                String[] parts = decodedString.split("%");
-                if (parts.length == 3) {
-                    becomeAdmin.setNome(parts[0]);
-                    becomeAdmin.setCognome(parts[1]);
-                    becomeAdmin.setEmail(parts[2]);
-                } else {
-                    model.addAttribute("error", "Token malformato: numero di componenti non valido.");
-                }
-            } catch (IllegalArgumentException ex) {
-                model.addAttribute("error", "Errore nella decodifica del token.");
-            }
-        }
-        
-        // Salvataggio dell'oggetto nella sessione per recuperarlo nel POST
-        session.setAttribute("becomeAdmin", becomeAdmin);
-        
-        // Recupero l'admin corrente dalla sessione
-        Admin adminSessione = (Admin) session.getAttribute("admin");
-        Admin admin = adminService.datiAdmin(adminSessione.getId());
-        
-        model.addAttribute("admin", admin);
-        model.addAttribute("esito", esito);
-        model.addAttribute("becomeAdmin", becomeAdmin);
-        
-        return "creaAdmin";
+    if (session.getAttribute("admin") == null) {
+        return "redirect:/loginAdmin";
     }
+    
+    // Inizializzazione Admin per il form
+    Admin adminForm = new Admin();
+    
+    // Inizializzazione BecomeAdmin
+    BecomeAdmin becomeAdmin = new BecomeAdmin();
+    
+    if (token != null && !token.isEmpty()) {
+        try {
+            byte[] decodedBytes = Base64.getDecoder().decode(token);
+            String decodedString = new String(decodedBytes);
+            
+            String[] parts = decodedString.split("%");
+            if (parts.length == 3) {
+                becomeAdmin.setNome(parts[0]);
+                becomeAdmin.setCognome(parts[1]);
+                becomeAdmin.setEmail(parts[2]);
+                
+                // Crea l'username automaticamente usando nome.cognome
+                String username = parts[0].toLowerCase() + "." + parts[1].toLowerCase();
+                // Rimuovi eventuali spazi e caratteri speciali
+                username = username.replaceAll("[^a-z.]", "");
+                adminForm.setUsername(username);
+            } else {
+                model.addAttribute("error", "Token malformato: numero di componenti non valido.");
+            }
+        } catch (IllegalArgumentException ex) {
+            model.addAttribute("error", "Errore nella decodifica del token.");
+        }
+    }
+    
+    // Salvataggio degli oggetti nella sessione
+    session.setAttribute("becomeAdmin", becomeAdmin);
+    
+    // Recupero admin corrente dalla sessione
+    Admin adminSessione = (Admin) session.getAttribute("admin");
+    Admin admin = adminService.datiAdmin(adminSessione.getId());
+    
+    model.addAttribute("admin", adminForm); // Passa l'adminForm invece di un nuovo Admin vuoto
+    model.addAttribute("esito", esito);
+    model.addAttribute("becomeAdmin", becomeAdmin);
+    
+    return "creaAdmin";
+}
     
     
     

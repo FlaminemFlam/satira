@@ -109,7 +109,7 @@ public class PostServiceImpl implements PostService {
     // post.setCommento((List<Commento>) commentiService.datiCommento(idCommento));
     post.setTitolo(titolo);
     Map<String, String> errori = new HashMap<>();
-    if (!titolo.matches("[a-zA-Z0-9\\sàèìòù,.'-]{1,50}")) {
+    if (!titolo.matches("[a-zA-Z0-9\\sàèìòù,.':-]{1,500}")) {
       errori.put("titolo", "Caratteri non ammessi in titolo");
     }
 

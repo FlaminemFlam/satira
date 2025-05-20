@@ -1,5 +1,4 @@
 @import "style.css";
-/*POST*/
 
 body{
 	 overflow-x: hidden; 
@@ -10,7 +9,7 @@ img {
   height: auto;
 }
 
-
+/*POST*/
 .blog-posts {
 	margin-top: 2%;
 	margin-bottom:2%;
@@ -25,7 +24,6 @@ img {
 
 }
 
-/*linee di margine del post*/
 .blog-posts .down-content {
 	padding: 40px;
 	border: 1px solid var(--third-color);
@@ -33,6 +31,8 @@ img {
 	border-bottom-right-radius: 25px;
 }
 
+
+/*AUTORE*/
 .autorepost{
 	padding-top: 2%;
 	display: flex;
@@ -52,7 +52,7 @@ img {
 }
 
 
-/*titolo post*/
+/*TITOLO POST*/
 .blog-posts .down-content h2 {
 	font-size: xx-large;
 	letter-spacing: 0.5px;
@@ -60,7 +60,7 @@ img {
 	margin: 8px 0px 10px 0px;
 }
 
-
+/*INFO POST*/
 .blog-posts .down-content ul.post-info li {
 	display: inline-block;
 	margin-right: 8px;
@@ -134,18 +134,8 @@ img {
 }
 
 
-.blog-posts .sidebar-heading h2 {
-	font-size: xx-large;
-	font-weight: 900;
-	letter-spacing: 0.5px;
-	color: var(--third-color);
-	border-bottom: 1px solid var(--third-color);;
-	padding-bottom: 15px;
-	margin-bottom: 25px;
-    margin-left:8%;
-    margin-right: 8%;
-}
 
+/*COMMENTI*/
 .blog-posts .comments {
 	margin-top: 5%;
     list-style-type: none;
@@ -175,8 +165,6 @@ img {
 	letter-spacing: 0.5px;
     text-align: justify;
 	text-justify: inter-word;
-  /*display: block;*/
-  
 }
 
 .blog-posts .comments ul li .right-content span {
@@ -199,12 +187,9 @@ img {
   width:auto;
   word-wrap: break-word;
   color: var(--third-color);
-  /*max-width:max-content;*/
 }
-.lista-croci li::before {
-    color: var(--third-color);
-    
-}
+
+/*input commento*/
 
 .blog-posts .submit-comment input {
 	width: 100%;
@@ -262,8 +247,7 @@ img {
 }
 
 
-/* Sidebar */
-
+/*SIDEBAR*/
 .sidebar {
 	margin-left: 2%;
 	margin-bottom: 8%;
@@ -281,9 +265,12 @@ img {
 	letter-spacing: 0.5px;
 	color: var(--third-color);
 	border-bottom: 1px solid var(--third-color);;
-	padding-bottom: 15px;
-	margin-bottom: 25px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	margin-left:8%;
+    margin-right: 8%;
 }
+
 
 
 .sidebar .sidebar-heading-commento h2 {

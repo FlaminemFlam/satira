@@ -238,13 +238,14 @@
                   <h2>Novità:</h2>
                 </div>
                 <div class="content postrecenti">
+                  <div id="scrollLaterale" class="scroll-laterale">
                   <ul class="lista-croci">
                     <li th:each="post:${posts.?[visible == 1]}" class="mb-2 recenti">
                       <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}"
                         class="text-decoration-none fc-t customFont">
                       </a>
                     </li>
-                  </ul>
+                  </ul></div>
                 </div>
               </div>
             </div>

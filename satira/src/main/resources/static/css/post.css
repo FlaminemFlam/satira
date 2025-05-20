@@ -469,7 +469,7 @@ button:active {
 .cercagif { 
 	width:69% !important; 
 	vertical-align: middle !important;
-	/*align-items: baseline AL PADRE */
+	margin-bottom: 2% !important;
 }
 .btn-cercagif{
 	vertical-align: middle !important;

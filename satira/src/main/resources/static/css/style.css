@@ -258,7 +258,7 @@ div#carouselExampleCaptions {
 @media (max-width: 2559px) {
 
     body {
-        font-size: xx-large;
+        font-size: x-large;
     }
 
     .customFont {
@@ -366,7 +366,7 @@ div#carouselExampleCaptions {
 @media (min-width: 2559px) {
 
     body {
-        font-size: large;
+        font-size: x-large;
     }
 
     .customFont {

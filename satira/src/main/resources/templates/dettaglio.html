@@ -70,7 +70,9 @@
         </div>
         <div class="offcanvas-body">
           <ul class="nav justify-content-end d-flex flex-column">
-
+            <li class="nav-item">
+              <a class="nav-link fc-t fs-4" th:href="@{/} ">Home</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link fc-t fs-4" th:href="@{/adminForm} ">Unisciti a noi</a>
             </li>
@@ -93,13 +95,15 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="blog-post">
-                  <div class="blog-thumb" th:style="${immaginePost == 'NULL' ? 'display:none' : 'display:block'}" >
+                  <div class="blog-thumb" th:style="${immaginePost == 'NULL' ? 'display:none' : 'display:block'}">
                     <img th:src="${post.immaginePost}" alt="img">
                   </div>
                   <div class="down-content">
                     <h2 th:text="${post.titolo}"></h2>
                     <ul class="post-info">
-                      <li><a th:text="|Pubblicato il: ${#temporals.format(post.dataPubblicazione, 'dd-MM-yyyy  HH:mm')}|"></a></li>
+                      <li><a
+                          th:text="|Pubblicato il: ${#temporals.format(post.dataPubblicazione, 'dd-MM-yyyy  HH:mm')}|"></a>
+                      </li>
                     </ul>
                     <p th:text="${post.contenuto}"></p>
                     <div class="post-options">
@@ -195,7 +199,7 @@
                         <fieldset class="bordo">
                           <input type="text" id="search" placeholder="Cerca Gif…">
                           <button id="btnGif" type="button" onclick="getGif();" class="btn btn-outline-danger">
-                          Gif
+                            Gif
                           </button>
                           <textarea name="testo" rows="6" id="testo" placeholder="Scrivi il tuo commento"></textarea>
                         </fieldset>
@@ -242,39 +246,40 @@
                 </div>
                 <div class="content postrecenti">
                   <div id="scrollLaterale" class="scroll-laterale">
-                  <ul class="lista-croci">
-                    <li th:each="post:${posts.?[visible == 1]}" class="mb-2 recenti">
-                      <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}"
-                        class="text-decoration-none fc-t customFont">
-                      </a>
-                    </li>
-                  </ul></div>
+                    <ul class="lista-croci">
+                      <li th:each="post:${posts.?[visible == 1]}" class="mb-2 recenti">
+                        <a th:href="@{/dettaglio(id=${post.id})}" th:text="${post.titolo}"
+                          class="text-decoration-none fc-t customFont">
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
             <!--ADS-->
-              <div class="col-lg-12">
-                <div class="sidebar-item recent-posts">
-                  <div class="sidebar-heading">
-                    <h2>Pubblicità:</h2>
-                  </div>
-                  <div class="ads">
-                    <img src="/immagini/ads/vivaio.png" alt="img">
-                  </div>
-                  <div class="ads">
-                    <img src="/immagini/ads/sport.png" alt="img">
-                  </div>
-                      
-                  <div class="ads">
-                      <img src="/immagini/ads/concerti.png" alt="img">
-                  </div>
-                  </div>
+            <div class="col-lg-12">
+              <div class="sidebar-item recent-posts">
+                <div class="sidebar-heading">
+                  <h2>Pubblicità:</h2>
+                </div>
+                <div class="ads">
+                  <img src="/immagini/ads/vivaio.png" alt="img">
+                </div>
+                <div class="ads">
+                  <img src="/immagini/ads/sport.png" alt="img">
+                </div>
+
+                <div class="ads">
+                  <img src="/immagini/ads/concerti.png" alt="img">
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    </div>
     </div>
     </div>
 

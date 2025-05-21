@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -33,7 +34,8 @@ public class PostServiceImpl implements PostService {
 
   @Override
   public List<Post> elencoPost() {
-    return (List<Post>) postRepository.findAll();
+    return (List<Post>) postRepository.findAll(
+    Sort.by(Sort.Direction.fromString("desc"), "id"));
   }
 
   @Override
